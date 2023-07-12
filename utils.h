@@ -1,14 +1,15 @@
 #include "CIMG.h"
-
-template <typename E>
+#include "Box.h"
+#include "Text.h"
 
 class utils
 {
 public:
 
-    static void drawElement(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, E e);
-
+     static void drawBox(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, Box box);
+     static void drawText(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, Text text);
+ 
 private:
 
-    void drawBox(cimg_library::CImg<unsigned char> &canvas);
+   
 };

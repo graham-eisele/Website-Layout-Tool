@@ -4,7 +4,6 @@
 
 Box::Box(int w, int h, Color primaryColor)
 {
-    setElementID(1);
 
     this->width = w;
     this->height = h;
@@ -13,8 +12,7 @@ Box::Box(int w, int h, Color primaryColor)
 }
 Box::Box(int w, int h, Color primaryColor, int borderThickness, Color boxOutlineColor)
 {   
-    setElementID(1);
-
+    
     this->width = w;
     this->height = h;
 

@@ -1,8 +1,11 @@
 #include <iostream>
-#include "element.h"
 #include "utils.h"
+
 #include "Box.h"
+#include "Text.h"
+
 #include "CIMG.h"
+
 
 int main(int argc, const char** argv)
 {
@@ -18,8 +21,11 @@ int main(int argc, const char** argv)
     Color blue(65, 105, 225);
 
     Box box(300, 500, blue, 100, Color(200, 200, 200));
+    Text text(100, "test", blue);
+    
 
-    utils<Box>::drawElement(bg, 0, 0, box);
+    utils::drawBox(bg, 0, 0, box);
+    utils::drawText(bg, 0, 0, text);
 
     bg.save("file.bmp");
 

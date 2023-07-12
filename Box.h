@@ -1,9 +1,8 @@
 #ifndef BOX_H
 #define BOX_H
 #include "Color.h"
-#include "element.h"
 
-class Box : public element
+class Box
 {
 public:
     //default box constructor

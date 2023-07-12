@@ -1,10 +1,10 @@
 #include "utils.h"
 #include "Box.h"
+#include "Text.h"
 #include <iostream>
 
-template <class E>
 
-void utils<E>::drawElement(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, E e)
+void utils::drawBox(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, Box box)
 {
     if(startX < 0 || startY < 0)
     {
@@ -18,33 +18,36 @@ void utils<E>::drawElement(cimg_library::CImg<unsigned char> &canvas, int startX
         return;
     }
 
-    //if the element is a box
-    if(e.getElementID() == 1)
+   
+    int elementWidth = box.getWidth();
+    int elementHeight = box.getHeight();
+    int borderThickness = box.getBorderThickness();
+
+    const unsigned char boxfillColor[] = {box.getPrimaryColor().getR(), box.getPrimaryColor().getG(), box.getPrimaryColor().getB()};
+    const unsigned char boxoutlineColor[] = {box.getBoxOutlineColor().getR(), box.getBoxOutlineColor().getG(), box.getBoxOutlineColor().getB()};
+
+    if(borderThickness <= 0)
     {
-        std::cout << "Box Element" << std::endl;
-        std::cout << e.getBorderThickness() << std::endl;
-
-        int elementWidth = e.getWidth();
-        int elementHeight = e.getHeight();
-        int borderThickness = e.getBorderThickness();
-
-        const unsigned char boxfillColor[] = {e.getPrimaryColor().getR(), e.getPrimaryColor().getG(), e.getPrimaryColor().getB()};
-        const unsigned char boxoutlineColor[] = {e.getBoxOutlineColor().getR(), e.getBoxOutlineColor().getG(), e.getBoxOutlineColor().getB()};
-
-        if(borderThickness <= 0)
-        {
-            canvas.draw_rectangle(startX, startY, startX + elementWidth, startY + elementHeight, boxfillColor, 1);
-        }
-        else if(borderThickness > 0)
-        {  
-            //filled rectangle
-            canvas.draw_rectangle(startX, startY, startX + elementWidth, startY + elementHeight, boxoutlineColor, 1);
-
-            //outline
-            canvas.draw_rectangle(startX + borderThickness / 2, startY + borderThickness / 2, startX + elementWidth - borderThickness / 2, startY + elementHeight - borderThickness / 2, boxfillColor, 1);
-        }
-      
+        canvas.draw_rectangle(startX, startY, startX + elementWidth, startY + elementHeight, boxfillColor, 1);
     }
+    else if(borderThickness > 0)
+    {  
+        //filled rectangle
+        canvas.draw_rectangle(startX, startY, startX + elementWidth, startY + elementHeight, boxoutlineColor, 1);
+
+        //outline
+        canvas.draw_rectangle(startX + borderThickness / 2, startY + borderThickness / 2, startX + elementWidth - borderThickness / 2, startY + elementHeight - borderThickness / 2, boxfillColor, 1);
+    }
+    
+ 
 }
 
-template class utils<Box>;
+void utils::drawText(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, Text text)
+{
+  
+        const unsigned char textColor[] = {text.getTextColor().getR(), text.getTextColor().getG(), text.getTextColor().getB()};
+
+        canvas.draw_text(0, 0, "Test", textColor,0,1,text.getFontSize());
+    
+}
+
