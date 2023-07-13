@@ -1,6 +1,7 @@
 #include "Text.h"
 #include <iostream>
 #include <string>
+#include "CIMG.h"
 
 
 Text::Text(int f, std::string text, Color textColor)
@@ -11,6 +12,14 @@ Text::Text(int f, std::string text, Color textColor)
 
     this->text = text;
 
+    cimg_library::CImg<unsigned char> bg(1,0,1,3, 255);
+
+    const unsigned char black[] = {255, 255, 255};
+
+    bg.draw_text(0, 0, text.c_str(), black,0,1,this->fontSize);
+
+    this->width = bg.width();
+    this->height = bg.height();
     
 }
 

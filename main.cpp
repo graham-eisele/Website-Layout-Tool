@@ -21,7 +21,7 @@ int main(int argc, const char** argv)
     Color blue(65, 105, 225);
 
     Box box(300, 500, blue, 100, Color(200, 200, 200));
-    Text text(100, "test", blue);
+    Text text(40, "test", blue);
     
 
     utils::drawBox(bg, 0, 0, box);

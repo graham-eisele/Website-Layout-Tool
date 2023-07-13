@@ -47,7 +47,7 @@ void utils::drawText(cimg_library::CImg<unsigned char> &canvas, int startX, int 
   
         const unsigned char textColor[] = {text.getTextColor().getR(), text.getTextColor().getG(), text.getTextColor().getB()};
 
-        canvas.draw_text(0, 0, "Test", textColor,0,1,text.getFontSize());
+        canvas.draw_text(startX, startY, text.getText().c_str(), textColor,0,1,text.getFontSize());
     
 }
 
