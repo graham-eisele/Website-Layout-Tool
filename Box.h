@@ -16,6 +16,9 @@ public:
     Color getPrimaryColor();
     Color getBoxOutlineColor();
 
+    bool isCentered();
+    bool isRounded();
+
 private:
     
     int width;

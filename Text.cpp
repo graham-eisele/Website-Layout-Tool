@@ -37,3 +37,13 @@ int Text::getFontSize()
 {
     return fontSize;
 }
+
+int Text::getWidth()
+{
+    return width;
+}
+
+int Text::getHeight()
+{
+    return height;
+}

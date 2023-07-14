@@ -17,6 +17,8 @@ public:
     
     int getFontSize();
     
+    int getWidth();
+    int getHeight();
 
 private:
 

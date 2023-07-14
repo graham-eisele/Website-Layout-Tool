@@ -3,6 +3,7 @@
 
 #include "Box.h"
 #include "Text.h"
+#include "Button.h"
 
 #include "CIMG.h"
 
@@ -22,10 +23,12 @@ int main(int argc, const char** argv)
 
     Box box(300, 500, blue, 100, Color(200, 200, 200));
     Text text(40, "test", blue);
-    
 
-    utils::drawBox(bg, 0, 0, box);
-    utils::drawText(bg, 0, 0, text);
+    Button button(200, 200, "test", 40, blue, Color(0, 0, 0), 10, Color(128, 128, 128), false, false);
+    
+    utils::drawButton(bg, 0, 0, button);
+    //utils::drawBox(bg, 0, 0, box);
+    //utils::drawText(bg, 0, 0, text);
 
     bg.save("file.bmp");
 

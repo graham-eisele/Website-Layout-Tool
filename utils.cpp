@@ -1,7 +1,10 @@
 #include "utils.h"
 #include "Box.h"
 #include "Text.h"
+#include "Button.h"
 #include <iostream>
+#include <cstdlib>
+
 
 
 void utils::drawBox(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, Box box)
@@ -51,3 +54,29 @@ void utils::drawText(cimg_library::CImg<unsigned char> &canvas, int startX, int 
     
 }
 
+
+void utils::drawButton(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, Button button)
+{
+
+       //as a percentage of the height
+       float vertical_padding = 0.15;
+       
+       //as a percentage of the height
+       float horizontal_padding = 0.25;
+
+       Box box = Box(button.getWidth(), button.getHeight(), button.getPrimaryColor(), button.getBorderThickness(), button.getBoxOutlineColor());
+
+       Text text = Text(button.getTextFontSize(), button.getText(), button.getTextColor());
+
+       drawBox(canvas, startX, startY, box);
+
+       if(button.Centered() == false)
+       {
+        drawText(canvas, startX + horizontal_padding * button.getWidth(), startY + box.getHeight() / 2 - text.getHeight() / 2, text);
+       }
+       else
+       {
+        drawText(canvas, startX + button.getWidth() / 2 - text.getWidth() / 2, startY + box.getHeight() / 2 - text.getHeight() / 2, text);
+       }
+
+}
