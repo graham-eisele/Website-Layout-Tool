@@ -13,6 +13,9 @@ Button::Button(int w, int h, std::string text, int textFontSize, Color textColor
     this->textFontSize = textFontSize;
     this->primaryBoxColor = primaryColor;
     this->text = text;
+
+    this->buttonRounded = false;
+    this->textCentered = false;
 }
 Button::Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor)
 {   
@@ -32,7 +35,8 @@ Button::Button(int w, int h, std::string text, int textFontSize, Color textColor
     this->primaryBoxColor = primaryColor;
     this->boxOutlineColor = boxOutlineColor;
 
-    this->isRounded = isRounded;
+    this->buttonRounded = false;
+    this->textCentered = false;
 
     this->textColor = textColor;
 
@@ -41,7 +45,7 @@ Button::Button(int w, int h, std::string text, int textFontSize, Color textColor
     this->text = text;
 }
 
-Button::Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool isRounded)
+Button::Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool buttonRounded)
 {   
     
     this->width = w;
@@ -65,10 +69,11 @@ Button::Button(int w, int h, std::string text, int textFontSize, Color textColor
 
     this->text = text;
 
-    this->isRounded = isRounded;
+    this->buttonRounded = buttonRounded;
+    this->textCentered = false;
 }
 
-Button::Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool isRounded, bool isCentered)
+Button::Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool buttonRounded, bool buttonTextCentered)
 {   
     
     this->width = w;
@@ -92,8 +97,8 @@ Button::Button(int w, int h, std::string text, int textFontSize, Color textColor
 
     this->text = text;
 
-    this->isRounded = isRounded;
-    this->isCentered = isCentered;
+    this->buttonRounded = buttonRounded;
+    this->textCentered = buttonTextCentered;
 }
 
 const int Button::getWidth()
@@ -136,13 +141,13 @@ std::string Button::getText()
     return text;
 }
 
-bool Button::Centered()
+bool Button::isTextCentered()
 {
-    return isCentered;
+    return textCentered;
 }
 
-bool Button::Rounded()
+bool Button::isRounded()
 {
-    return isRounded;
+    return buttonRounded;
 }
 

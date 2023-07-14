@@ -11,8 +11,8 @@ public:
     //default box constructor
     Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor);
     Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor);
-    Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool isRounded);
-    Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool isRounded, bool isCentered);
+    Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool buttonRounded);
+    Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool buttonRounded, bool buttonTextCentered);
 
     const int getWidth();
     const int getHeight();
@@ -25,8 +25,8 @@ public:
 
     std::string getText();
 
-    bool Rounded();
-    bool Centered();
+    bool isRounded();
+    bool isTextCentered();
 
 private:
     
@@ -41,8 +41,8 @@ private:
     Color textColor;
     std::string text;
 
-    bool isRounded;
-    bool isCentered;
+    bool buttonRounded;
+    bool textCentered;
 
 };
 #endif

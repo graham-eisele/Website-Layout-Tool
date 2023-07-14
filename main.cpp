@@ -21,12 +21,12 @@ int main(int argc, const char** argv)
 
     Color blue(65, 105, 225);
 
-    Box box(300, 500, blue, 100, Color(200, 200, 200));
+    Box box(300, 500, blue, 50, Color(200, 200, 200));
     Text text(40, "test", blue);
 
-    Button button(200, 200, "test", 40, blue, Color(0, 0, 0), 10, Color(128, 128, 128), false, false);
+    Button button(400, 200, "test", 40, blue, Color(54, 54, 54), 20, Color(128, 128, 128), true, false);
     
-    utils::drawButton(bg, 0, 0, button);
+    utils::drawButton(bg, 100, 0, button);
     //utils::drawBox(bg, 0, 0, box);
     //utils::drawText(bg, 0, 0, text);
 
