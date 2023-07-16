@@ -5,13 +5,15 @@ Color::Color()
     r = 0;
     g = 0;
     b = 0;
+    a = 0;
 }
 
-Color::Color(int r, int g, int b)
+Color::Color(int r, int g, int b, int a)
 {
     this->r = r;
     this->g = g;
     this->b = b;
+    this->a = a;
 }
 
 int Color::getR()
@@ -27,4 +29,9 @@ int Color::getG()
 int Color::getB()
 {
     return b;
+}
+
+int Color::getA()
+{
+    return a;
 }

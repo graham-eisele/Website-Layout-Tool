@@ -67,12 +67,11 @@ void utils::drawRoundedBox(cimg_library::CImg<unsigned char> &canvas, int startX
     const unsigned char boxfillColor[] = {box.getPrimaryColor().getR(), box.getPrimaryColor().getG(), box.getPrimaryColor().getB()};
     const unsigned char boxoutlineColor[] = {box.getBoxOutlineColor().getR(), box.getBoxOutlineColor().getG(), box.getBoxOutlineColor().getB()};
 
-    float circle_radius = 0.15 * box.getWidth();
+    float circle_radius = 0.15 * elementHeight;
 
-    if(borderThickness <= 0)
+    if(borderThickness <= 0 && box.getPrimaryColor().getA() != 0)
     {
         
-
         //top left circle
         canvas.draw_circle(startX + circle_radius, startY + circle_radius, circle_radius, boxfillColor, 1);
 
@@ -93,66 +92,73 @@ void utils::drawRoundedBox(cimg_library::CImg<unsigned char> &canvas, int startX
     }
     else if(borderThickness > 0)
     {  
-        std::cout << "test" << std::endl;
+        //radius for the corner circles of the inside rectangle
+        float circle_outline_radius = (box.getWidth() - box.getBorderThickness()) / (box.getWidth());
 
-        //outline
-        //top left circle
-        canvas.draw_circle(startX + circle_radius, startY + circle_radius, circle_radius, boxoutlineColor, 1);
+        if(box.getBoxOutlineColor().getA() != 0)
+        {
 
-        //bottom left box
-        canvas.draw_circle(startX + circle_radius, startY - circle_radius + elementHeight, circle_radius, boxoutlineColor, 1);
+            //outline
+            //top left circle
+            canvas.draw_circle(startX + circle_radius, startY + circle_radius, circle_radius, boxoutlineColor, 1);
 
-        //top right circle
-        canvas.draw_circle(startX - circle_radius + elementWidth, startY + circle_radius, circle_radius, boxoutlineColor, 1);
+            //bottom left box
+            canvas.draw_circle(startX + circle_radius, startY - circle_radius + elementHeight, circle_radius, boxoutlineColor, 1);
 
-        //bottom right cirlce
-        canvas.draw_circle(startX - circle_radius + elementWidth, startY - circle_radius + elementHeight, circle_radius, boxoutlineColor, 1);
+            //top right circle
+            canvas.draw_circle(startX - circle_radius + elementWidth, startY + circle_radius, circle_radius, boxoutlineColor, 1);
 
-        //horizonal rectangle
-        canvas.draw_rectangle(startX, startY + circle_radius, startX + elementWidth, startY + elementHeight - circle_radius, boxoutlineColor, 1);
+            //bottom right cirlce
+            canvas.draw_circle(startX - circle_radius + elementWidth, startY - circle_radius + elementHeight, circle_radius, boxoutlineColor, 1);
 
-        //vertical rectangle
-        canvas.draw_rectangle(startX + circle_radius, startY, startX + elementWidth - circle_radius, startY + elementHeight, boxoutlineColor, 1);
+            //horizonal rectangle
+            canvas.draw_rectangle(startX, startY + circle_radius, startX + elementWidth, startY + elementHeight - circle_radius, boxoutlineColor, 1);
+
+            //vertical rectangle
+            canvas.draw_rectangle(startX + circle_radius, startY, startX + elementWidth - circle_radius, startY + elementHeight, boxoutlineColor, 1);
+
+        }
 
         /***/
 
-        //filled rectangle
-        //top left circle
-        canvas.draw_circle(startX + circle_radius + borderThickness, startY + circle_radius + borderThickness, circle_radius, boxfillColor, 1);
+        if(box.getPrimaryColor().getA() != 0)
+        {
+            
+            //filled rectangle
+            //top left circle
+            canvas.draw_circle(startX + circle_radius + borderThickness, startY + circle_radius + borderThickness, circle_radius, boxfillColor, 1);
 
-        //bottom left box
-        canvas.draw_circle(startX + circle_radius + borderThickness, startY - circle_radius + elementHeight - borderThickness, circle_radius, boxfillColor, 1);
+            //bottom left box
+            canvas.draw_circle(startX + circle_radius + borderThickness, startY - circle_radius + elementHeight - borderThickness, circle_radius, boxfillColor, 1);
 
-        //top right circle
-        canvas.draw_circle(startX - circle_radius + elementWidth - borderThickness, startY + circle_radius + borderThickness, circle_radius, boxfillColor, 1);
+            //top right circle
+            canvas.draw_circle(startX - circle_radius + elementWidth - borderThickness, startY + circle_radius + borderThickness, circle_radius, boxfillColor, 1);
 
-        //bottom right cirlce
-        canvas.draw_circle(startX - circle_radius + elementWidth - borderThickness, startY - circle_radius + elementHeight - borderThickness, circle_radius, boxfillColor, 1);
+            //bottom right cirlce
+            canvas.draw_circle(startX - circle_radius + elementWidth - borderThickness, startY - circle_radius + elementHeight - borderThickness, circle_radius, boxfillColor, 1);
 
-        //horizonal rectangle
-        canvas.draw_rectangle(startX + borderThickness, startY + circle_radius, startX + elementWidth - borderThickness, startY + elementHeight - circle_radius, boxfillColor, 1);
+            //horizonal rectangle
+            canvas.draw_rectangle(startX + borderThickness, startY + circle_radius + borderThickness, startX + elementWidth - borderThickness, startY + elementHeight - circle_radius - borderThickness, boxfillColor, 1);
 
-        //vertical rectangle
-        canvas.draw_rectangle(startX + circle_radius, startY + borderThickness, startX + elementWidth - circle_radius, startY + elementHeight - borderThickness, boxfillColor, 1);
-
-        
-
-       
+            //vertical rectangle
+            canvas.draw_rectangle(startX + circle_radius + borderThickness, startY + borderThickness, startX + elementWidth - circle_radius - borderThickness, startY + elementHeight - borderThickness, boxfillColor, 1);
+        }
     }
     
- 
 }
-
 
 void utils::drawText(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, Text text)
 {
+
+        if(text.getTextColor().getA() != 0)
+        {
   
         const unsigned char textColor[] = {text.getTextColor().getR(), text.getTextColor().getG(), text.getTextColor().getB()};
 
         canvas.draw_text(startX, startY, text.getText().c_str(), textColor,0,1,text.getFontSize());
-    
+        
+        }
 }
-
 
 void utils::drawButton(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, Button button)
 {
@@ -184,4 +190,49 @@ void utils::drawButton(cimg_library::CImg<unsigned char> &canvas, int startX, in
         drawText(canvas, startX + button.getWidth() / 2 - text.getWidth() / 2, startY + box.getHeight() / 2 - text.getHeight() / 2, text);
        }
 
+}
+
+void utils::drawRadioOption(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, RadioOption radioBox)
+{
+     //as a percentage of the height
+    float horizontal_padding = 0.3;
+
+    const unsigned char circleFillColor[] = {radioBox.getCircleFillColor().getR(), radioBox.getCircleFillColor().getG(), radioBox.getCircleFillColor().getB()};
+    const unsigned char circleOutlineColor[] = {radioBox.getCircleOutlineColor().getR(), radioBox.getCircleOutlineColor().getG(), radioBox.getCircleOutlineColor().getB()};
+
+    Box box(radioBox.getWidth(), radioBox.getHeight(), radioBox.getPrimaryColor(), radioBox.getBorderThickness(), radioBox.getBoxOutlineColor());
+
+    Text radioOptionText = Text(radioBox.getTextFontSize(), radioBox.getText(), radioBox.getTextColor());
+
+    float circleRadius = 0.15 * box.getHeight();
+    float leftPadding = 0.3 * box.getHeight();
+
+    if(radioBox.isRounded())
+    {
+        drawRoundedBox(canvas, startX, startY, box);
+    }
+    else
+    {
+        drawBox(canvas, startX, startY, box);
+    }
+
+    //text not horizontally centered
+    if(radioBox.isTextCentered() == false)
+    {
+        drawText(canvas, startX + leftPadding + circleRadius * 2, startY + box.getHeight() / 2 - radioOptionText.getHeight() / 2, radioOptionText);
+    }
+
+    //text horizontally centered
+    else
+    {
+        drawText(canvas, startX + radioBox.getWidth() / 2 - radioOptionText.getWidth() / 2, startY + box.getHeight() / 2 - radioOptionText.getHeight() / 2, radioOptionText);
+    }
+
+   
+    std::cout << "test" << std::endl;
+
+    canvas.draw_circle(startX + leftPadding, startY + radioBox.getHeight() / 2, circleRadius, circleFillColor, 1);
+    canvas.draw_circle(startX + leftPadding, startY + radioBox.getHeight() / 2, circleRadius * 0.75, circleOutlineColor, 1);
+    
+    
 }
