@@ -1,15 +1,6 @@
 #include "Box.h"
 #include <iostream>
 
-
-Box::Box(int w, int h, Color primaryColor)
-{
-
-    this->width = w;
-    this->height = h;
-
-    this->borderThickness = 0;
-}
 Box::Box(int w, int h, Color primaryColor, int borderThickness, Color boxOutlineColor)
 {   
     

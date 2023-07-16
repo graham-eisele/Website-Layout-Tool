@@ -2,6 +2,7 @@
 #include "Box.h"
 #include "Text.h"
 #include "Button.h"
+#include "TextBox.h"
 #include <iostream>
 #include <cstdlib>
 
@@ -71,7 +72,7 @@ void utils::drawRoundedBox(cimg_library::CImg<unsigned char> &canvas, int startX
 
     if(borderThickness <= 0 && box.getPrimaryColor().getA() != 0)
     {
-        
+
         //top left circle
         canvas.draw_circle(startX + circle_radius, startY + circle_radius, circle_radius, boxfillColor, 1);
 
@@ -92,12 +93,17 @@ void utils::drawRoundedBox(cimg_library::CImg<unsigned char> &canvas, int startX
     }
     else if(borderThickness > 0)
     {  
+       
+
         //radius for the corner circles of the inside rectangle
         float circle_outline_radius = (box.getWidth() - box.getBorderThickness()) / (box.getWidth());
+
+        std::cout << "test1: " << box.getBoxOutlineColor().getA() << std::endl;
 
         if(box.getBoxOutlineColor().getA() != 0)
         {
 
+            
             //outline
             //top left circle
             canvas.draw_circle(startX + circle_radius, startY + circle_radius, circle_radius, boxoutlineColor, 1);
@@ -118,6 +124,7 @@ void utils::drawRoundedBox(cimg_library::CImg<unsigned char> &canvas, int startX
             canvas.draw_rectangle(startX + circle_radius, startY, startX + elementWidth - circle_radius, startY + elementHeight, boxoutlineColor, 1);
 
         }
+
 
         /***/
 
@@ -228,11 +235,88 @@ void utils::drawRadioOption(cimg_library::CImg<unsigned char> &canvas, int start
         drawText(canvas, startX + radioBox.getWidth() / 2 - radioOptionText.getWidth() / 2, startY + box.getHeight() / 2 - radioOptionText.getHeight() / 2, radioOptionText);
     }
 
-   
-    std::cout << "test" << std::endl;
-
+    //option circle and outline if it exists
     canvas.draw_circle(startX + leftPadding, startY + radioBox.getHeight() / 2, circleRadius, circleFillColor, 1);
     canvas.draw_circle(startX + leftPadding, startY + radioBox.getHeight() / 2, circleRadius * 0.75, circleOutlineColor, 1);
     
     
+}
+
+void utils::drawTextBox(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, TextBox box)
+{
+    Button button(box.getWidth(), box.getHeight(), box.getHintText(), box.getTextFontSize(), box.getTextColor(), box.getPrimaryColor(), box.getBorderThickness(), box.getBoxOutlineColor(), box.isRounded(), box.isTextCentered());
+
+    Text buttonText = Text(button.getTextFontSize(), button.getText(), button.getTextColor());
+
+    drawButton(canvas, startX, startY, button);
+
+    const unsigned char underlineColor[] = {box.getUnderLineColor().getR(), box.getUnderLineColor().getG(), box.getUnderLineColor().getB()};
+
+     //as a percentage of the height
+    float horizontal_padding = 0.25;
+
+    if(box.isUnderlined() && box.getUnderLineColor().getA() != 0)
+    {
+        int underlineBarThickness = 0.1 * buttonText.getHeight();
+        float leftPadding = 0.3 * box.getHeight();
+
+        if(button.isTextCentered() == false)
+        {
+            int underlineStartX = startX + horizontal_padding * button.getWidth();
+            int underlineStartY = startY + box.getHeight() / 2 + buttonText.getHeight() / 2;
+
+            canvas.draw_rectangle(underlineStartX, underlineStartY, underlineStartX + buttonText.getWidth(), underlineStartY + underlineBarThickness, underlineColor);
+        }
+        else    
+        {
+            int underlineStartX = startX + button.getWidth() / 2 - buttonText.getWidth() / 2;
+            int underlineStartY = startY + box.getHeight() / 2 + buttonText.getHeight() / 2;
+
+            canvas.draw_rectangle(underlineStartX, underlineStartY, underlineStartX + buttonText.getWidth(), underlineStartY + underlineBarThickness, underlineColor);
+        }
+    }  
+}
+
+void utils::drawCheckBox(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, CheckMark checkBox)
+{
+      //as a percentage of the height
+    float horizontal_padding = 0.3;
+
+    const unsigned char checkBoxFillColor[] = {checkBox.getCheckmarkBoxFillColor().getR(), checkBox.getCheckmarkBoxFillColor().getG(), checkBox.getCheckmarkBoxFillColor().getB()};
+    const unsigned char checkboxOutlineColor[] = {checkBox.getCheckmarkBoxOutlineColor().getR(), checkBox.getCheckmarkBoxOutlineColor().getG(), checkBox.getCheckmarkBoxOutlineColor().getB()};
+    
+
+    Box box(checkBox.getWidth(), checkBox.getHeight(), checkBox.getContainerFillColor(), checkBox.getBorderThickness(), checkBox.getContainerOutlineColor());
+    //Box box(100, 100, Color(128, 128, 128, 1), 5, Color(128, 128, 128, 1));
+
+    Text checkmarkOptionText = Text(checkBox.getTextFontSize(), checkBox.getText(), checkBox.getTextColor());
+
+    float checkmarkBoxWidth = 0.3 * box.getHeight();
+    float leftPadding = 0.15 * box.getHeight();
+
+    if(checkBox.isRounded())
+    {
+        drawRoundedBox(canvas, startX, startY, box);
+    }
+    else
+    {
+        drawBox(canvas, startX, startY, box);
+    }
+
+    //text not horizontally centered
+    if(checkBox.isTextCentered() == false)
+    {
+        drawText(canvas, startX + leftPadding + checkmarkBoxWidth, startY + box.getHeight() / 2 - checkmarkOptionText.getHeight() / 2, checkmarkOptionText);
+    }
+
+    //text horizontally centered
+    else
+    {
+        drawText(canvas, startX + checkBox.getWidth() / 2 - checkmarkOptionText.getWidth() / 2, startY + box.getHeight() / 2 - checkmarkOptionText.getHeight() / 2, checkmarkOptionText);
+    }
+
+    //canvas.draw_rectangle(startX + leftPadding, startY, startX + leftPadding + checkmarkBoxWidth, startY + checkmarkBoxWidth, checkBoxFillColor, 1);
+    //canvas.draw_rectangle(startX + leftPadding, startY, startX + leftPadding + checkmarkBoxWidth * 1.25, startY + checkmarkBoxWidth * 0.75, checkboxOutlineColor, 1);
+
+
 }

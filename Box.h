@@ -6,7 +6,6 @@ class Box
 {
 public:
     //default box constructor
-    Box(int w, int h, Color primaryColor);
     Box(int w, int h, Color primaryColor, int borderThickness, Color boxOutlineColor);
 
     const int getWidth();

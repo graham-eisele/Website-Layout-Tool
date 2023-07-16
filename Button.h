@@ -9,9 +9,6 @@ class Button
 {
 public:
     //default box constructor
-    Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor);
-    Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor);
-    Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool buttonRounded);
     Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool buttonRounded, bool buttonTextCentered);
 
     const int getWidth();
