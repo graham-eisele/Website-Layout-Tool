@@ -3,4 +3,5 @@
 
 # Requirements
 OpenCV 4.8.0
+
 CMake 3.27.0
