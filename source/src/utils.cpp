@@ -1,8 +1,8 @@
-#include "../header/utils.h"
-#include "../header/Box.h"
-#include "../header/Text.h"
-#include "../header/Button.h"
-#include "../header/TextBox.h"
+#include "../headers/utils.h"
+#include "../headers/Box.h"
+#include "../headers/Text.h"
+#include "../headers/Button.h"
+#include "../headers/TextBox.h"
 #include <iostream>
 #include <cstdlib>
 
@@ -319,4 +319,25 @@ void utils::drawCheckBox(cimg_library::CImg<unsigned char> &canvas, int startX, 
     //canvas.draw_rectangle(startX + leftPadding, startY, startX + leftPadding + checkmarkBoxWidth * 1.25, startY + checkmarkBoxWidth * 0.75, checkboxOutlineColor, 1);
 
 
+}
+
+
+void utils::drawImage(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, int width, int height)
+{
+    for(int i = 0; i < width; i++)
+    {
+        const unsigned char black[] = {0, 0, 0};
+        const unsigned char white[] = {255, 255, 255};
+
+        if(i % 2 == 0)
+        {
+            canvas.draw_rectangle(startX, startY, startX + 1, startY + height, black);
+        }
+        else
+        {
+            canvas.draw_rectangle(startX, startY, startX + 1, startY + height, white);
+        }
+
+
+    }
 }

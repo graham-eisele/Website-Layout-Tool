@@ -1,4 +1,4 @@
-#include "../header/TextBox.h"
+#include "../headers/TextBox.h"
 #include <iostream>
 
 TextBox::TextBox(int w, int h, std::string hintText, int textFontSize, int borderThickness, Color hintTextColor, Color boxFillColor, Color boxOutlineColor, Color underLineColor, bool textBoxRounded, bool textboxTextCentered, bool hasUnderLine)

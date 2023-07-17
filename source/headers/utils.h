@@ -17,8 +17,18 @@ public:
      static void drawRadioOption(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, RadioOption box);
      static void drawTextBox(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, TextBox box);
      static void drawCheckBox(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, CheckMark checkBox);
+     static void drawImage(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, int width, int height);
      
- 
+     /*
+
+     static void randomBox();
+     static void randomText();
+     static void randomRoundedBox();
+     static void randomTextBox();
+     static void randomCheckBox();
+
+     */
+     
 private:
 
    

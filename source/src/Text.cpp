@@ -1,5 +1,5 @@
-#include "../header/Text.h"
-#include "../header/CImg.h"
+#include "../headers/Text.h"
+#include "../headers/CImg.h"
 #include <iostream>
 #include <string>
 

@@ -318,6 +318,23 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\main.cpp" />
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\Box.h" />
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\Button.h" />
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\CheckMark.h" />
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\CImg.h" />
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\Color.h" />
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\RadioOption.h" />
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\Text.h" />
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\TextBox.h" />
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\utils.h" />
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\Box.cpp" />
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\Button.cpp" />
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\CheckMark.cpp" />
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\Color.cpp" />
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\RadioOption.cpp" />
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\Text.cpp" />
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\TextBox.cpp" />
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\graha\Documents\Website-Layout-Tool\build\ZERO_CHECK.vcxproj">

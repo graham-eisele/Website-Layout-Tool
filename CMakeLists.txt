@@ -5,6 +5,29 @@ project(Website-Layout-Tool)
 set(OpenCV_DIR C:/opencv/build)
 find_package(OpenCV REQUIRED)
 
-add_executable(${PROJECT_NAME} source/src/main.cpp)
+add_executable(${PROJECT_NAME} 
+    source/src/main.cpp 
+
+    source/headers/Box.h
+    source/headers/Button.h
+    source/headers/CheckMark.h
+    source/headers/CImg.h
+    source/headers/Color.h
+    source/headers/RadioOption.h
+    source/headers/Text.h
+    source/headers/TextBox.h
+    source/headers/utils.h 
+
+    source/src/Box.cpp
+    source/src/Button.cpp
+    source/src/CheckMark.cpp
+    source/src/Color.cpp
+    source/src/main.cpp
+    source/src/RadioOption.cpp
+    source/src/Text.cpp
+    source/src/TextBox.cpp
+    source/src/utils.cpp
+    )
+    
 
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})

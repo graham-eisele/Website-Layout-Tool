@@ -4,11 +4,67 @@
     <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\Box.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\CheckMark.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\Color.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\RadioOption.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\Text.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\TextBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\Box.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\CheckMark.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\CImg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\RadioOption.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\Text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\TextBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\graha\Documents\Website-Layout-Tool\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{E56F6E61-A063-3E25-BF38-12352C39B7C7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{875AB41A-AA95-346F-8A93-472BD7494045}</UniqueIdentifier>
     </Filter>
