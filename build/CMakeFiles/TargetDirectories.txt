@@ -1,0 +1,3 @@
+C:/Users/graha/Documents/Website-Layout-Tool/build/CMakeFiles/Website-Layout-Tool.dir
+C:/Users/graha/Documents/Website-Layout-Tool/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/graha/Documents/Website-Layout-Tool/build/CMakeFiles/ZERO_CHECK.dir
