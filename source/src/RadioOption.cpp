@@ -1,8 +1,9 @@
 #include "../headers/RadioOption.h"
 #include <iostream>
 
-RadioOption::RadioOption(int w, int h, std::string text, int textFontSize, Color textColor, Color boxFillColor, Color circleFillColor, Color circleOutlineColor, int borderThickness, Color boxOutlineColor, bool buttonRounded, bool buttonTextCentered)
+RadioOption::RadioOption(std::string id, int w, int h, std::string text, int textFontSize, Color textColor, Color boxFillColor, Color circleFillColor, Color circleOutlineColor, int borderThickness, Color boxOutlineColor, bool buttonRounded, bool buttonTextCentered)
 {   
+    this->id = id;
     
     this->width = w;
     this->height = h;
@@ -92,3 +93,16 @@ bool RadioOption::isRounded()
     return radioOptionRounded;
 }
 
+std::string RadioOption::getId()
+{
+    return id;
+}
+
+void RadioOption::setIndex(int index)
+{
+    this->index = index;
+}
+int RadioOption::getIndex()
+{
+    return index;
+}

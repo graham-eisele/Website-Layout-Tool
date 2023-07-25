@@ -6,6 +6,7 @@ set(OpenCV_DIR C:/opencv/build)
 find_package(OpenCV REQUIRED)
 
 add_executable(${PROJECT_NAME} 
+
     source/src/main.cpp 
 
     source/headers/Box.h
@@ -16,7 +17,10 @@ add_executable(${PROJECT_NAME}
     source/headers/RadioOption.h
     source/headers/Text.h
     source/headers/TextBox.h
+    source/headers/ImagePlaceholder.h
+    source/headers/Captcha.h
     source/headers/utils.h 
+    source/headers/Layout.h
 
     source/src/Box.cpp
     source/src/Button.cpp
@@ -26,7 +30,10 @@ add_executable(${PROJECT_NAME}
     source/src/RadioOption.cpp
     source/src/Text.cpp
     source/src/TextBox.cpp
+    source/src/ImagePlaceholder.cpp
+    source/src/Captcha.cpp
     source/src/utils.cpp
+    source/src/Layout.cpp
     )
     
 

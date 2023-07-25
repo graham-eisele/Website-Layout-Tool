@@ -3,8 +3,10 @@
 #include <iostream>
 #include <string>
 
-Text::Text(int f, std::string text, Color textColor)
+Text::Text(std::string id, int f, std::string text, Color textColor)
 {
+    this->id = id;
+
     this->fontSize = f;
 
     this->textColor = textColor;
@@ -45,4 +47,18 @@ int Text::getWidth()
 int Text::getHeight()
 {
     return height;
+}
+
+std::string Text::getId()
+{
+    return id;
+}
+
+void Text::setIndex(int index)
+{
+    this->index = index;
+}
+int Text::getIndex()
+{
+    return index;
 }

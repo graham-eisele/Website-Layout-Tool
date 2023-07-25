@@ -1,8 +1,9 @@
 #include "../headers/TextBox.h"
 #include <iostream>
 
-TextBox::TextBox(int w, int h, std::string hintText, int textFontSize, int borderThickness, Color hintTextColor, Color boxFillColor, Color boxOutlineColor, Color underLineColor, bool textBoxRounded, bool textboxTextCentered, bool hasUnderLine)
+TextBox::TextBox(std::string id, int w, int h, std::string hintText, int textFontSize, int borderThickness, Color hintTextColor, Color boxFillColor, Color boxOutlineColor, Color underLineColor, bool textBoxRounded, bool textboxTextCentered, bool hasUnderLine)
 {   
+    this->id = id;
     
     this->width = w;
     this->height = h;
@@ -90,4 +91,18 @@ bool TextBox::isRounded()
 bool TextBox::isUnderlined()
 {
     return hasUnderline;
+}
+
+std::string TextBox::getId()
+{
+    return id;
+}
+
+void TextBox::setIndex(int index)
+{
+    this->index = index;
+}
+int TextBox::getIndex()
+{
+    return index;
 }

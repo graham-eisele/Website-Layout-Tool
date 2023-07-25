@@ -8,7 +8,7 @@ class Text
 {
 public:
     //default box constructor
-    Text(int f, std::string text, Color textColor);
+    Text(std::string id, int f, std::string text, Color textColor);
 
     Color getTextColor();
      
@@ -18,6 +18,11 @@ public:
     
     int getWidth();
     int getHeight();
+    
+    std::string getId();
+
+    void setIndex(int index);
+    int getIndex();
 
 private:
 
@@ -27,6 +32,10 @@ private:
     int fontSize;
     Color textColor;
     std::string text;
+
+    std::string id;
+
+    int index;
     
 };
 #endif

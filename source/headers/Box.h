@@ -1,12 +1,13 @@
 #ifndef BOX_H
 #define BOX_H
 #include "Color.h"
+#include <string>
 
 class Box
 {
 public:
     //default box constructor
-    Box(int w, int h, Color primaryColor, int borderThickness, Color boxOutlineColor);
+    Box(std::string id, int w, int h, Color primaryColor, int borderThickness, Color boxOutlineColor);
 
     const int getWidth();
     const int getHeight();
@@ -14,6 +15,11 @@ public:
 
     Color getPrimaryColor();
     Color getBoxOutlineColor();
+
+    std::string getId();
+
+    void setIndex(int index);
+    int getIndex();
 
 private:
     
@@ -24,6 +30,10 @@ private:
 
     Color primaryColor;
     Color boxOutlineColor;
+
+    std::string id;
+
+    int index;
     
 };
 #endif

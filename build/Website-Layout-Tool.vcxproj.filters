@@ -25,7 +25,16 @@
     <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\TextBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\ImagePlaceholder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\Captcha.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\graha\Documents\Website-Layout-Tool\source\src\Layout.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,7 +63,16 @@
     <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\TextBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\ImagePlaceholder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\Captcha.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\graha\Documents\Website-Layout-Tool\source\headers\Layout.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,8 +2,9 @@
 #include <iostream>
 
 
-Button::Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool buttonRounded, bool buttonTextCentered)
-{   
+Button::Button(std::string id, int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool buttonRounded, bool buttonTextCentered)
+{
+    this->id = id;
     
     this->width = w;
     this->height = h;
@@ -80,3 +81,16 @@ bool Button::isRounded()
     return buttonRounded;
 }
 
+std::string Button::getId()
+{
+    return id;
+}
+
+void Button::setIndex(int index)
+{
+    this->index = index;
+}
+int Button::getIndex()
+{
+    return index;
+}

@@ -3,13 +3,13 @@
 #include "Color.h"
 #include "Box.h"
 #include "Text.h"
-#include <iostream>
+#include <string>
 
 class TextBox
 {
 public:
     //default box constructor
-    TextBox(int w, int h, std::string hintText, int textFontSize, int borderThickness, Color hintTextColor, Color boxFillColor, Color boxOutlineColor, Color underLineColor, bool textBoxRounded, bool textboxTextCentered, bool hasUnderLine);
+    TextBox(std::string id, int w, int h, std::string hintText, int textFontSize, int borderThickness, Color hintTextColor, Color boxFillColor, Color boxOutlineColor, Color underLineColor, bool textBoxRounded, bool textboxTextCentered, bool hasUnderLine);
 
     const int getWidth();
     const int getHeight();
@@ -26,6 +26,11 @@ public:
     bool isRounded();
     bool isTextCentered();
     bool isUnderlined();
+
+    std::string getId();
+
+    void setIndex(int index);
+    int getIndex();
 
 private:
     
@@ -44,6 +49,10 @@ private:
     bool textBoxRouned;
     bool textCentered;
     bool hasUnderline;
+
+    std::string id;
+
+    int index;
 
 };
 #endif

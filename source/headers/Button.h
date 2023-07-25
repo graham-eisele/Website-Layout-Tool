@@ -9,7 +9,7 @@ class Button
 {
 public:
     //default box constructor
-    Button(int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool buttonRounded, bool buttonTextCentered);
+    Button(std::string id, int w, int h, std::string text, int textFontSize, Color textColor, Color primaryColor, int borderThickness, Color boxOutlineColor, bool buttonRounded, bool buttonTextCentered);
 
     const int getWidth();
     const int getHeight();
@@ -24,6 +24,11 @@ public:
 
     bool isRounded();
     bool isTextCentered();
+
+    std::string getId();
+
+    void setIndex(int index);
+    int getIndex();
 
 private:
     
@@ -40,6 +45,10 @@ private:
 
     bool buttonRounded;
     bool textCentered;
+
+    std::string id;
+
+    int index;
 
 };
 #endif

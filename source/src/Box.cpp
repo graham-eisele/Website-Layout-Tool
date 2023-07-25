@@ -1,8 +1,9 @@
 #include "../headers/Box.h"
 #include <iostream>
 
-Box::Box(int w, int h, Color primaryColor, int borderThickness, Color boxOutlineColor)
+Box::Box(std::string id, int w, int h, Color primaryColor, int borderThickness, Color boxOutlineColor)
 {   
+    this->id = id;
     
     this->width = w;
     this->height = h;
@@ -43,4 +44,18 @@ Color Box::getPrimaryColor()
 Color Box::getBoxOutlineColor()
 {
     return boxOutlineColor;
+}
+
+std::string Box::getId()
+{
+    return id;
+}
+
+void Box::setIndex(int index)
+{
+    this->index = index;
+}
+int Box::getIndex()
+{
+    return index;
 }

@@ -5,10 +5,18 @@
 #include "CheckMark.h"
 #include "Button.h"
 #include "RadioOption.h"
+#include "ImagePlaceholder.h"
+#include "Captcha.h"
+#include "Layout.h"
+
+#include "../rapidjson/document.h"
+#include "../rapidjson/filereadstream.h"
 
 class utils
 {
 public:
+
+     static void drawLayout(Layout layout, std::string filename);
 
      static void drawBox(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, Box box);
      static void drawText(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, Text text);
@@ -17,19 +25,43 @@ public:
      static void drawRadioOption(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, RadioOption box);
      static void drawTextBox(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, TextBox box);
      static void drawCheckBox(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, CheckMark checkBox);
-     static void drawImage(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, int width, int height);
-     
-     /*
+     static void drawImagePlaceholder(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, ImagePlaceholder imagePlaceHolder);
+     static void drawCaptcha(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, Captcha captcha);
 
-     static void randomBox();
-     static void randomText();
-     static void randomRoundedBox();
-     static void randomTextBox();
-     static void randomCheckBox();
 
-     */
+     static Box randomBox(int maxWidth, int maxHeight);
+     static Text randomText();
+     static Button randomButton(int maxWidth, int maxHeight);
+     static TextBox randomTextBox(int maxWidth, int maxHeight);
+     static CheckMark randomCheckBox(int maxWidth, int maxHeight);
+     static RadioOption randomRadioOption(int maxWidth, int maxHeight);
+     static ImagePlaceholder randomImagePlaceholder(int maxWidth, int maxHeight);
+     static Captcha randomCaptcha(int maxWidth);
+
+     static int randomInt(int min, int max);
+     static int randomThickness(int min, int max);
+     static Color randomColor();
+     static std::string randomString();
+     static bool randomBool();
+
+     static int mutateInt(int original, int max);    
+
+     static rapidjson::Document loadJson(std::string jsonPath);
+
+     //creates a layout object from a json file
+     static Layout getLayout(std::string jsonPath);
+
+     static Box parseBox(rapidjson::Value& object, int index);
+     static Text parseText(rapidjson::Value& object, int index);
+     static Button parseButton(rapidjson::Value& object, int index);
+     static TextBox parseTextBox(rapidjson::Value& object, int index);
+     static CheckMark parseCheckBox(rapidjson::Value& object, int index);
+     static RadioOption parseRadioOption(rapidjson::Value& object, int index);
+     static ImagePlaceholder parseImagePlaceholder(rapidjson::Value& object, int index);
+     static Captcha parseCaptcha(rapidjson::Value& object, int index);  
+
+     static Color parseColor(rapidjson::Value& colorArray);
      
 private:
-
    
 };

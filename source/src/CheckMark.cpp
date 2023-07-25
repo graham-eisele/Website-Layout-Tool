@@ -1,8 +1,9 @@
 #include "../headers/CheckMark.h"
 #include <iostream>
 
-CheckMark::CheckMark(int w, int h, std::string text, int textFontSize, Color textColor, Color checkmarkBoxFillColor, Color checkmarkBoxOutlineColor, Color containerFillColor, Color containerOutlineColor, int borderThickness, bool containerRounded, bool buttonTextCentered, bool checkMarkBoxRounded)
+CheckMark::CheckMark(std::string id, int w, int h, std::string text, int textFontSize, Color textColor, Color checkmarkBoxFillColor, Color checkmarkBoxOutlineColor, Color containerFillColor, Color containerOutlineColor, int borderThickness, bool containerRounded, bool buttonTextCentered, bool checkMarkBoxRounded)
 {   
+    this->id = id;
     
     this->width = w;
     this->height = h;
@@ -27,6 +28,7 @@ CheckMark::CheckMark(int w, int h, std::string text, int textFontSize, Color tex
 
     this->checkmarkContainerRounded = containerRounded;
     this->textCentered = buttonTextCentered;
+    this->checkmarkBoxRounded = checkMarkBoxRounded;
 
     this->checkmarkBoxFillColor = checkmarkBoxFillColor;
     this->checkmarkBoxOutlineColor = checkmarkBoxOutlineColor;
@@ -87,8 +89,26 @@ bool CheckMark::isTextCentered()
     return textCentered;
 }
 
-bool CheckMark::isRounded()
+bool CheckMark::isContainerRounded()
 {
     return checkmarkContainerRounded;
 }
 
+bool CheckMark::isCheckmarkBoxRounded()
+{
+    return checkmarkBoxRounded;
+}
+
+std::string CheckMark::getId()
+{
+    return id;
+}
+
+void CheckMark::setIndex(int index)
+{
+    this->index = index;
+}
+int CheckMark::getIndex()
+{
+    return index;
+}

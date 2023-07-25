@@ -3,13 +3,13 @@
 #include "Color.h"
 #include "Box.h"
 #include "Text.h"
-#include <iostream>
+#include <string>
 
 class CheckMark
 {
 public:
     //default box constructor
-    CheckMark(int w, int h, std::string text, int textFontSize, Color textColor, Color checkmarkBoxFillColor, Color checkmarkBoxOutlineColor, Color containerFillColor, Color containerOutlineColor, int borderThickness, bool containerRounded, bool buttonTextCentered, bool checkMarkBoxRounded);
+    CheckMark(std::string id, int w, int h, std::string text, int textFontSize, Color textColor, Color checkmarkBoxFillColor, Color checkmarkBoxOutlineColor, Color containerFillColor, Color containerOutlineColor, int borderThickness, bool containerRounded, bool buttonTextCentered, bool checkMarkBoxRounded);
 
     const int getWidth();
     const int getHeight();
@@ -25,8 +25,14 @@ public:
 
     std::string getText();
 
-    bool isRounded();
+    bool isContainerRounded();
+    bool isCheckmarkBoxRounded();
     bool isTextCentered();
+
+    std::string getId();
+
+    void setIndex(int index);
+    int getIndex();
 
 private:
     
@@ -47,6 +53,10 @@ private:
     bool checkmarkContainerRounded;
     bool textCentered;
     bool checkmarkBoxRounded;
+
+    std::string id;
+
+    int index;
 
 };
 #endif

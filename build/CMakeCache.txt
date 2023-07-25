@@ -206,6 +206,9 @@ Website-Layout-Tool_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 Website-Layout-Tool_SOURCE_DIR:STATIC=C:/Users/graha/Documents/Website-Layout-Tool
 
+//The directory containing a CMake configuration file for nlohmann_json.
+nlohmann_json_DIR:PATH=nlohmann_json_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries
