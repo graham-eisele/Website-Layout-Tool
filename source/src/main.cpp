@@ -30,16 +30,14 @@ int main(int argc, const char* argv[])
     for(int i = 0; i < argc; i++)
     {
         std::string current_argument = argv[i];
-        std::string current_commandline_argument = current_argument.substr(0, 13);
 
-        std::cout << current_commandline_argument << "\n";
-        if(current_commandline_argument == "--input_file=")
+        if(current_argument.substr(0, 13) == "--input_file=")
         {
             input_filename = current_argument.substr(13);
         }
-        else if(current_commandline_argument == "--output_file=")
+        else if(current_argument.substr(0, 14) == "--output_file=")
         {
-             output_filename = current_argument.substr(13);
+             output_filename = current_argument.substr(14);
         }
     
   
