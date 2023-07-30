@@ -438,8 +438,8 @@ void utils::drawLayout(Layout layout, std::string filename)
     //6 - captcha
     //7 image place holder
 
-    unsigned int canvasWidth = 1920;
-    unsigned int canvasHeight = 1080;
+    unsigned int canvasWidth = layout.getCanvasWidth();
+    unsigned int canvasHeight = layout.getCanvasHeight();
     int currentElementIndex = 0;
 
     cimg_library::CImg<unsigned char> bg(canvasWidth,canvasHeight,1,3, 255);
@@ -860,13 +860,16 @@ Layout utils::getLayout(std::string jsonPath)
             startingY = object["drawY"].GetInt();
         }
 
-        layout.addXCoordinate(startingX);
-        layout.addYCoordinate(startingY);
-
         if(type == "Canvas")
         {
             layout.setCanvasWidth(object["width"].GetInt());
             layout.setCanvasHeight(object["height"].GetInt());
+        } 
+        else
+        {
+            layout.addXCoordinate(startingX);
+            layout.addYCoordinate(startingY);
+           
         }
 
         if(type == "Box")
@@ -1013,6 +1016,7 @@ Box utils::parseBox(rapidjson::Value& object, int index)
         
         isRounded = object["isRounded"].GetBool();
     }
+
 
     Box outputBox(id, width, height, primaryColor, borderThickness, boxOutlineColor, isRounded);
     outputBox.setIndex(index);

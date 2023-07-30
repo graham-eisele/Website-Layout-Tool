@@ -231,6 +231,15 @@ ImagePlaceholder Layout::getImagePlaceHolderElement(int index)
     return front;
 }
 
+int Layout::getCanvasWidth()
+{
+    return canvasWidth;
+}  
+int Layout::getCanvasHeight()
+{
+    return canvasHeight;
+}
+
 int Layout::getXCoordinate(int index)
 {
     return coordinatesX[index];

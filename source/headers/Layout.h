@@ -60,6 +60,9 @@ class Layout
         int popXCoordinate();
         int popYCoordinate();
 
+        int getCanvasWidth();
+        int getCanvasHeight();
+
         Box getBox(int index);
         Text getTextElement(int index);
         TextBox getTextBoxElement(int index);

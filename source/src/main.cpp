@@ -21,24 +21,40 @@ int main(int argc, const char* argv[])
     
     Layout layout;
 
-    std::string first_comandline_argument = argv[1];
-    std::string second_comandline_argument = argv[1];
-    
-    std::string first_command = first_comandline_argument.substr(0, 13);
-    std::string second_command = first_comandline_argument.substr(0, 13);
+    std::string first_command = "";
+    std::string second_command = "";
 
-    if(first_command == "--input_file=")
+    std::string input_filename = "";
+    std::string output_filename  = "";
+
+    for(int i = 0; i < argc; i++)
     {
-        std::string input_filename = first_comandline_argument.substr(13);
+        std::string current_argument = argv[i];
+        std::string current_commandline_argument = current_argument.substr(0, 13);
 
-        std::string output_filename = "output";
-
-        if(second_command == "--output_file=")
+        std::cout << current_commandline_argument << "\n";
+        if(current_commandline_argument == "--input_file=")
         {
-            output_filename = second_comandline_argument.substr(13);
+            input_filename = current_argument.substr(13);
+        }
+        else if(current_commandline_argument == "--output_file=")
+        {
+             output_filename = current_argument.substr(13);
+        }
+    
+  
+        if(input_filename.length() > 0)
+        {
+            if(output_filename.length() > 0)
+            {
+                utils::drawLayout( utils::getLayout(input_filename), output_filename);
+            }
+            else
+            {
+                utils::drawLayout( utils::getLayout(input_filename), "output");
+            }
         }
         
-         utils::drawLayout( utils::getLayout(input_filename), output_filename);
     }
 
     return 0;
