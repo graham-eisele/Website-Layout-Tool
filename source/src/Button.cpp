@@ -1,3 +1,4 @@
+#include "../headers/Utils.h"
 #include "../headers/Button.h"
 #include <iostream>
 
@@ -29,6 +30,24 @@ Button::Button(std::string id, int w, int h, std::string text, int textFontSize,
 
     this->buttonRounded = buttonRounded;
     this->textCentered = buttonTextCentered;
+}
+
+void Button::mutate()
+{
+
+    width = utils::mutateInt(width, 1920);
+    height = utils::mutateInt(height, 1080);
+
+    borderThickness = utils::mutateInt(borderThickness, 20);
+
+    primaryBoxColor = utils::mutateColor(primaryBoxColor);
+    boxOutlineColor = utils::mutateColor(boxOutlineColor);
+    textColor = utils::mutateColor(textColor);
+    text = utils::mutateString(text);
+
+    buttonRounded = utils::randomBool(); 
+    textCentered = utils::randomBool();
+
 }
 
 const int Button::getWidth()
@@ -94,3 +113,4 @@ int Button::getIndex()
 {
     return index;
 }
+

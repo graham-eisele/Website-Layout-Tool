@@ -1,0 +1,65 @@
+Create a layout for a webpage that has this background color: rgb(35,31,32). Then, create a large box in the center with color: rgb(241, 241, 241). This box will contain two text elements and a button element. One of the text elements will have the following text:
+
+Thank you for your interest in our survey. We are interested in understanding what devices people own and use. Please read each question carefully, responding as honestly and accurately as possible. Note that there are checks included in this survey to ensure that you are paying attention and responding honestly." and the other one will have the following text : "Depending on your responses, you may qualify for an additional research opportunity. Participation is completely optional and requires you to provide some additional personal information. We’ll let you know more about this at the end of the survey if you qualify." The button is in the bottom right of this box and has the text label ">>" and is green.
+
+[
+  {
+    "id": "background",
+    "type": "Box", 
+    "drawX": 0,
+    "drawY": 0,
+    "width": 1920,
+    "height": 1080,
+    "primaryColor": [35, 31, 32, 1],
+    "borderThickness": 0,
+    "boxOutlineColor": [0, 0, 0, 0]
+  },
+
+  {
+    "id": "contentBox",
+    "type": "Box",
+    "drawX": 480,
+    "drawY": 335,
+    "width": 962,
+    "height": 541,
+    "primaryColor": [241, 241, 241, 1],
+    "borderThickness": 0,
+    "boxOutlineColor": [0, 0, 0, 0]
+  },
+
+  {
+    "id": "text1",
+    "type": "Text",
+
+    "text": "Thank you for your interest in our survey. We are interested in \nunderstanding what devices people own and use. Please read each \nquestion carefully, responding as honestly and accurately as possible. \nNote that there are checks included in this survey \nto ensure that you are paying attention and responding honestly.",
+    "drawX": 528,
+    "drawY": 367,
+    "textSize": 30,
+    "textColor": [81, 83, 90, 1]
+  },
+  
+  {
+    "id": "text2", 
+    "type": "Text",
+    "text": "Depending on your responses, you may qualify for an additional research \nopportunity. Participation is completely optional and requires you to \nprovide some additional personal information. Well let you know more\n about this at the end of the survey if you qualify.",
+    "drawX": 528,
+    "drawY": 600,
+    "textSize": 30,
+    "textColor": [81, 83, 90, 1]
+  },
+
+  {
+    "id": "continueButton",
+    "type": "Button", 
+    "text": ">>",
+    "drawX": 1318,
+    "drawY": 812,
+    "width": 73,
+    "height": 43,
+    "textSize": 20,
+    "textColor": [255, 255, 255, 1],
+    "primaryColor": [140, 197, 64, 1], 
+    "rounded": true,
+    "textCentered": true
+  }
+]

@@ -1,0 +1,68 @@
+Create a layout for webpage that has the following instructions for the user: "We are interested in learning about your music preferences and habits.  Please tell us how you discover new music, what genres of music you regularly listen to, how you access music, and when you typically listen to music. Please be as specific as possible." There is an empty textbox where the user can type and at the bottom there is a button with the label "Next":
+[
+  {
+    "id": "header1",
+    "type": "Box",
+    "drawX": 0,
+    "drawY": 0,
+    "width": 1920,
+    "height": 1080,
+    "primaryColor": [239, 239, 239, 1],
+    "borderThickness": 0,
+    "boxOutlineColor": [0, 0, 0, 0]
+  },
+  {
+    "id": "header2",
+    "type": "Box",
+    "drawX": 195,
+    "drawY": 0,
+    "width": 1536,
+    "height": 721,
+    "primaryColor": [255, 255, 255, 255],
+    "borderThickness": 0,
+    "boxOutlineColor": [0, 0, 0, 0]
+  },
+  {
+    "id": "instructionText",
+    "type": "Text",
+    "text": "We are interested in learning about your music preferences and habits. Please tell us \nhow you discover new music, what genres of music you regularly listen to, how you access music, and when you typically listen to music. \nPlease be as specific as possible.",
+    "drawX": 230,
+    "drawY": 55,
+    "textSize": 20,
+    "textColor": [44, 62, 80, 1]
+  },
+  {
+    "id": "musicPreferenceTextBox",
+        "type": "TextBox",
+        "drawX": 260,
+        "drawY": 140,
+        "width": 430,
+        "height": 160,
+        "text": "",
+        "textSize": 0,
+        "borderThickness": 3,
+        "textColor": [100,0,100,0],
+        "primaryColor": [255,255,255,1],
+        "boxOutlineColor": [170,177,185,1],
+		    "underlineColor": [0, 0, 0, 0],
+        "textBoxRounded":true,
+        "textCentered":true,
+		    "hasUnderLine": false
+  },
+  {
+    "id": "nextButton",
+    "type": "Button",
+    "drawX": 930,
+    "drawY": 600,
+    "width": 76,
+    "height": 52,
+    "text": "Next",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [255, 255, 255, 1],
+    "primaryColor": [58, 142, 168, 1],
+    "boxOutlineColor": [0, 0, 0, 0],
+    "rounded": true,
+    "textCentered": true
+  }
+]

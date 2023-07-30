@@ -1,5 +1,6 @@
 #include "../headers/Text.h"
 #include "../headers/CImg.h"
+#include "../headers/utils.h"
 #include <iostream>
 #include <string>
 
@@ -61,4 +62,18 @@ void Text::setIndex(int index)
 int Text::getIndex()
 {
     return index;
+}
+
+void Text::mutate()
+{
+
+    this->width = utils::mutateInt(width, 1920);
+    this->height = utils::mutateInt(height, 1080);
+
+    this->fontSize = utils::mutateInt(fontSize, 50);
+
+    this->textColor = utils::mutateColor(textColor);
+
+    this->text = utils::mutateString(text);
+
 }

@@ -39,6 +39,9 @@ class Layout
         int numXCoordinates();
         int numYCoordinates();
 
+        void setCanvasWidth(int width);
+        void setCanvasHeight(int height);
+
         Box popBox();
         Text popTextElement();
         TextBox popTextBoxElement();
@@ -64,7 +67,9 @@ class Layout
         CheckMark getCheckmarkElement(int index);
         RadioOption getRadioOptionElement(int index);
         Captcha getCaptchaElement(int index);        
-        ImagePlaceholder getImagePlaceHolderElement(int index);        
+        ImagePlaceholder getImagePlaceHolderElement(int index);
+
+        void mutate();
 
     private:
         
@@ -78,7 +83,10 @@ class Layout
         std::deque<ImagePlaceholder> imagePlaceholderElements;
 
         std::deque<int> coordinatesX;
-        std::deque<int> coordinatesY;        
+        std::deque<int> coordinatesY;   
+
+        int canvasWidth;
+        int canvasHeight;     
         
         //element ids
         //0 - box
@@ -89,6 +97,9 @@ class Layout
         //5 - radio option
         //6 - captcha
         //7 image place holder
+
+        
+
     
 };
 #endif

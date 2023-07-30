@@ -12,6 +12,8 @@
 #include "../rapidjson/document.h"
 #include "../rapidjson/filereadstream.h"
 
+#include "opencv2/opencv.hpp"
+
 #include <random>
 #include <iostream>
 #include <fstream>
@@ -88,37 +90,45 @@ bool utils::randomBool()
 
 void utils::drawBox(cimg_library::CImg<unsigned char> &canvas, int startX, int startY, Box box)
 {
-    if(startX < 0 || startY < 0)
+    if(box.rounded() == false)
     {
-        std::cout << "Invalid starting drawing point. Both X and Y must be greater than 0." << std::endl;
-        return;
-    }
 
-    if(startX > canvas.width() || startY > canvas.height())
+        if(startX < 0 || startY < 0)
+        {
+            std::cout << "Invalid starting drawing point. Both X and Y must be greater than 0." << std::endl;
+            return;
+        }
+
+        if(startX > canvas.width() || startY > canvas.height())
+        {
+            std::cout << "Invalid starting drawing point. Both X and Y less than or equal to the width and height of the canvas." << std::endl;
+            return;
+        }
+
+    
+        int elementWidth = box.getWidth();
+        int elementHeight = box.getHeight();
+        int borderThickness = box.getBorderThickness();
+
+        const unsigned char boxfillColor[] = {box.getPrimaryColor().getR(), box.getPrimaryColor().getG(), box.getPrimaryColor().getB()};
+        const unsigned char boxoutlineColor[] = {box.getBoxOutlineColor().getR(), box.getBoxOutlineColor().getG(), box.getBoxOutlineColor().getB()};
+        
+        if(borderThickness <= 0)
+        {
+            canvas.draw_rectangle(startX, startY, startX + elementWidth, startY + elementHeight, boxfillColor, 1);
+        }
+        else if(borderThickness > 0)
+        {  
+            //outline
+            canvas.draw_rectangle(startX, startY, startX + elementWidth, startY + elementHeight, boxoutlineColor, 1);
+
+            //filled rectangle
+            canvas.draw_rectangle(startX + borderThickness, startY + borderThickness, startX + elementWidth - borderThickness, startY + elementHeight - borderThickness, boxfillColor, 1);
+        }
+    }
+    else
     {
-        std::cout << "Invalid starting drawing point. Both X and Y less than or equal to the width and height of the canvas." << std::endl;
-        return;
-    }
-
-   
-    int elementWidth = box.getWidth();
-    int elementHeight = box.getHeight();
-    int borderThickness = box.getBorderThickness();
-
-    const unsigned char boxfillColor[] = {box.getPrimaryColor().getR(), box.getPrimaryColor().getG(), box.getPrimaryColor().getB()};
-    const unsigned char boxoutlineColor[] = {box.getBoxOutlineColor().getR(), box.getBoxOutlineColor().getG(), box.getBoxOutlineColor().getB()};
-
-    if(borderThickness <= 0)
-    {
-        canvas.draw_rectangle(startX, startY, startX + elementWidth, startY + elementHeight, boxfillColor, 1);
-    }
-    else if(borderThickness > 0)
-    {  
-        //outline
-        canvas.draw_rectangle(startX, startY, startX + elementWidth, startY + elementHeight, boxoutlineColor, 1);
-
-        //filled rectangle
-        canvas.draw_rectangle(startX + borderThickness, startY + borderThickness, startX + elementWidth - borderThickness, startY + elementHeight - borderThickness, boxfillColor, 1);
+        drawRoundedBox(canvas, startX, startY, box);
     }
     
  
@@ -243,20 +253,13 @@ void utils::drawButton(cimg_library::CImg<unsigned char> &canvas, int startX, in
        //as a percentage of the height
        float horizontal_padding = 0.25;
 
-       Box box = Box("random_element", button.getWidth(), button.getHeight(), button.getPrimaryColor(), button.getBorderThickness(), button.getBoxOutlineColor());
+       Box box = Box("random_element", button.getWidth(), button.getHeight(), button.getPrimaryColor(), button.getBorderThickness(), button.getBoxOutlineColor(), false);
 
        Text text = Text("random_element", button.getTextFontSize(), button.getText(), button.getTextColor());
 
        const unsigned char buttonPrimaryColor[] = {button.getPrimaryColor().getR(), button.getPrimaryColor().getG(), button.getPrimaryColor().getB()};
 
-       if(button.isRounded() == false)
-       {
-            drawBox(canvas, startX, startY, box);
-       }
-       else
-       {    
-            drawRoundedBox(canvas, startX, startY, box);
-       }
+       drawBox(canvas, startX, startY, box);
 
        if(button.isTextCentered() == false)
        {
@@ -276,20 +279,32 @@ void utils::drawRadioOption(cimg_library::CImg<unsigned char> &canvas, int start
     const unsigned char circleFillColor[] = {radioBox.getCircleFillColor().getR(), radioBox.getCircleFillColor().getG(), radioBox.getCircleFillColor().getB()};
     const unsigned char circleOutlineColor[] = {radioBox.getCircleOutlineColor().getR(), radioBox.getCircleOutlineColor().getG(), radioBox.getCircleOutlineColor().getB()};
 
-    Box box("random_element", radioBox.getWidth(), radioBox.getHeight(), radioBox.getPrimaryColor(), radioBox.getBorderThickness(), radioBox.getBoxOutlineColor());
+    Box box("random_element", radioBox.getWidth(), radioBox.getHeight(), radioBox.getPrimaryColor(), radioBox.getBorderThickness(), radioBox.getBoxOutlineColor(), radioBox.isRounded());
 
     Text radioOptionText = Text("random_element", radioBox.getTextFontSize(), radioBox.getText(), radioBox.getTextColor());
 
     float circleRadius = 0.15 * box.getHeight();
     float leftPadding = 0.3 * box.getHeight();
 
-    if(radioBox.isRounded())
+    if(radioBox.getPrimaryColor().getA() == 0)
     {
-        drawRoundedBox(canvas, startX, startY, box);
+        circleRadius = box.getHeight() / 2;
     }
-    else
+
+    if(radioBox.getText() == "")
     {
-        drawBox(canvas, startX, startY, box);
+        circleRadius = radioBox.getHeight() / 2;
+        
+        //option circle and outline if it exists
+        canvas.draw_circle(startX + circleRadius, startY + circleRadius / 2, circleRadius, circleOutlineColor, 1);
+        canvas.draw_circle(startX + circleRadius, startY + circleRadius / 2, circleRadius * 0.8, circleFillColor, 1);
+    
+        return;
+    }
+
+    if(radioBox.getPrimaryColor().getA()!=0)
+    {
+       drawBox(canvas, startX, startY, box);
     }
 
     //text not horizontally centered
@@ -353,31 +368,24 @@ void utils::drawCheckBox(cimg_library::CImg<unsigned char> &canvas, int startX, 
     const unsigned char checkBoxFillColor[] = {checkBox.getCheckmarkBoxFillColor().getR(), checkBox.getCheckmarkBoxFillColor().getG(), checkBox.getCheckmarkBoxFillColor().getB()};
     const unsigned char checkboxOutlineColor[] = {checkBox.getCheckmarkBoxOutlineColor().getR(), checkBox.getCheckmarkBoxOutlineColor().getG(), checkBox.getCheckmarkBoxOutlineColor().getB()};
     
-    Box containerBox("random_element", checkBox.getWidth(), checkBox.getHeight(), checkBox.getContainerFillColor(), checkBox.getBorderThickness(), checkBox.getContainerOutlineColor());
+    Box containerBox("random_element", checkBox.getWidth(), checkBox.getHeight(), checkBox.getContainerFillColor(), checkBox.getBorderThickness(), checkBox.getContainerOutlineColor(), checkBox.isContainerRounded());
     
     float checkmarkBoxWidth = 0.3 * containerBox.getHeight();
     
-    Box checkMarkBox("checkmark", checkmarkBoxWidth, checkmarkBoxWidth, checkBox.getCheckmarkBoxFillColor(),  checkmarkBoxWidth * 0.2, checkBox.getCheckmarkBoxOutlineColor());
+    Box checkMarkBox("checkmark", checkmarkBoxWidth, checkmarkBoxWidth, checkBox.getCheckmarkBoxFillColor(),  checkmarkBoxWidth * 0.2, checkBox.getCheckmarkBoxOutlineColor(), checkBox.isCheckmarkBoxRounded());
+
+    if(checkBox.getText() == "")
+    {
+        checkMarkBox = Box("checkmark", containerBox.getHeight(), containerBox.getHeight(), checkBox.getCheckmarkBoxFillColor(),  containerBox.getHeight() * 0.1, checkBox.getCheckmarkBoxOutlineColor(), checkMarkBox.rounded());
+
+         drawBox(canvas, startX, startY, checkMarkBox);
+    }
 
     Text checkmarkOptionText = Text("random_element", checkBox.getTextFontSize(), checkBox.getText(), checkBox.getTextColor());
 
-    if(checkBox.isContainerRounded())
-    {
-        drawRoundedBox(canvas, startX, startY, containerBox);
-    }
-    else
-    {
-        drawBox(canvas, startX, startY, containerBox);
-    }
+    drawBox(canvas, startX, startY, containerBox);
 
-    if(checkBox.isCheckmarkBoxRounded())
-    {
-        drawRoundedBox(canvas, startX + checkmarkBoxWidth, startY + containerBox.getHeight() / 2 - checkmarkBoxWidth / 2, checkMarkBox);
-    }
-    else
-    {
-        drawBox(canvas, startX + checkmarkBoxWidth, startY + containerBox.getHeight() / 2  - checkmarkBoxWidth / 2, checkMarkBox);
-    }
+    drawBox(canvas, startX + checkmarkBoxWidth, startY + containerBox.getHeight() / 2  - checkmarkBoxWidth / 2, checkMarkBox);
 
     //text not horizontally centered
     if(checkBox.isTextCentered() == false)
@@ -432,6 +440,7 @@ void utils::drawLayout(Layout layout, std::string filename)
 
     unsigned int canvasWidth = 1920;
     unsigned int canvasHeight = 1080;
+    int currentElementIndex = 0;
 
     cimg_library::CImg<unsigned char> bg(canvasWidth,canvasHeight,1,3, 255);
 
@@ -518,59 +527,59 @@ void utils::drawLayout(Layout layout, std::string filename)
         if(lowestIndexType == 0)
         {
             Box box = layout.getBox(0);
-            drawBox(bg, layout.getXCoordinate(0), layout.getYCoordinate(0), box);
+            drawBox(bg, layout.getXCoordinate(currentElementIndex), layout.getYCoordinate(currentElementIndex), box);
             layout.popBox();
 
         }
         else if(lowestIndexType == 1)
         {
             Text text = layout.getTextElement(0);
-            drawText(bg, layout.getXCoordinate(0), layout.getYCoordinate(0), text);
+            drawText(bg, layout.getXCoordinate(currentElementIndex), layout.getYCoordinate(currentElementIndex), text);
             layout.popTextElement();
         }
         else if(lowestIndexType == 3)
         {
             Button button = layout.getButtonElement(0);
-            drawButton(bg, layout.getXCoordinate(0), layout.getYCoordinate(0), button);
+            drawButton(bg, layout.getXCoordinate(currentElementIndex), layout.getYCoordinate(currentElementIndex), button);
             layout.popButtonElement();
         }
         else if(lowestIndexType == 2)
         {
             TextBox textBox = layout.getTextBoxElement(0);
-            drawTextBox(bg, layout.getXCoordinate(0), layout.getYCoordinate(0), textBox);
+            drawTextBox(bg, layout.getXCoordinate(currentElementIndex), layout.getYCoordinate(currentElementIndex), textBox);
             layout.popTextBoxElement();
         }
         else if(lowestIndexType == 4)
         {
             CheckMark checkMark = layout.getCheckmarkElement(0);
-            drawCheckBox(bg, layout.getXCoordinate(0), layout.getYCoordinate(0), checkMark);
+            drawCheckBox(bg, layout.getXCoordinate(currentElementIndex), layout.getYCoordinate(currentElementIndex), checkMark);
             layout.popCheckmarkElement();
         }
 
         else if(lowestIndexType == 5)
         {
             RadioOption radioOption = layout.getRadioOptionElement(0);
-            drawRadioOption(bg, layout.getXCoordinate(0), layout.getYCoordinate(0), radioOption);
+            drawRadioOption(bg, layout.getXCoordinate(currentElementIndex), layout.getYCoordinate(currentElementIndex), radioOption);
             layout.popRadioOptionElement();
         }
 
         else if(lowestIndexType == 6)
         {
             Captcha captcha = layout.getCaptchaElement(0);
-            drawCaptcha(bg, layout.getXCoordinate(0), layout.getYCoordinate(0), captcha);
+            drawCaptcha(bg, layout.getXCoordinate(currentElementIndex), layout.getYCoordinate(currentElementIndex), captcha);
             layout.popCaptchaElement();
         }
 
         else if(lowestIndexType == 7)
         {
             ImagePlaceholder imagePlaceholder = layout.getImagePlaceHolderElement(0);
-            drawImagePlaceholder(bg, layout.getXCoordinate(0), layout.getYCoordinate(0), imagePlaceholder);
+            drawImagePlaceholder(bg, layout.getXCoordinate(currentElementIndex), layout.getYCoordinate(currentElementIndex), imagePlaceholder);
             layout.popImagePlaceHolderElement();
         }
-        
-        layout.popXCoordinate();
-        layout.popYCoordinate();
+
+        currentElementIndex++;
     }
+
 
     bg.save((filename + ".bmp").c_str());
 }
@@ -583,7 +592,7 @@ Box utils::randomBox(int maxWidth, int maxHeight)
 
     int randThick = randomThickness(0, maxWidth);
 
-    Box box("random_element", randomWidth, randomHeight, randomColor(), randThick, randomColor());
+    Box box("random_element", randomWidth, randomHeight, randomColor(), randThick, randomColor(), randomBool());
 
     return box;
 }
@@ -707,6 +716,9 @@ int utils::mutateInt(int original, int max)
 {
    bool addOrSubtract = randomBool();
    bool doNothing = randomBool();
+   
+   //amount to add or subtract by
+   int amount = 2;
 
    if(doNothing == false)
    {
@@ -714,13 +726,15 @@ int utils::mutateInt(int original, int max)
     //add
     if(addOrSubtract)
     {
-        if(original < max) return (original + 1);
+        //add 1 to original
+        if(original < max) return (original + amount);
 
         return original;
     }
     else
     {
-        if(original > 0) return (original - 1);
+        //subtract 1 from original
+        if(original > 0) return (original - amount);
 
         return 0;
     }
@@ -728,6 +742,93 @@ int utils::mutateInt(int original, int max)
    }
 
    return original;
+}
+Color utils::mutateColor(Color originalColor)
+{
+   Color outputColor = originalColor;
+
+   bool addOrSubtract = randomBool();
+   bool doNothing = randomBool();
+   
+   //amount to add or subtract by
+   int amount = 5;
+
+   if(doNothing == false)
+   {
+       bool doNothingRed = randomBool();
+       bool doNothingGreen = randomBool();
+       bool doNothingBlue = randomBool();
+       bool doNothingAlpha = randomBool();
+       
+       if(doNothingRed)
+       {
+            bool addOrSubtract = randomBool();
+
+            if(addOrSubtract && outputColor.getR() < 255)
+            {
+                //add
+                outputColor.setA(outputColor.getA() + amount);
+            }
+            else if(outputColor.getR() > 0)
+            {
+                //subtract
+                outputColor.setA(outputColor.getA() - amount);
+            }
+
+       }
+
+       if(doNothingBlue)
+       {
+            bool addOrSubtract = randomBool();
+
+            if(addOrSubtract && outputColor.getB() < 255)
+            {
+                //add
+                outputColor.setB(outputColor.getB() + amount);
+            }
+            else if(outputColor.getB() > 0)
+            {
+                //subtract
+                outputColor.setB(outputColor.getB() - amount);
+            }
+
+       }
+
+       if(doNothingGreen)
+       {
+            bool addOrSubtract = randomBool();
+
+            if(addOrSubtract && outputColor.getG() < 255)
+            {
+                //add
+                outputColor.setG(outputColor.getG() + amount);
+            }
+            else if(outputColor.getG() > 0)
+            {
+                //subtract
+                outputColor.setG(outputColor.getG() - amount);
+            }
+
+       }
+
+       if(doNothingAlpha)
+       {
+            bool zeroOrOne = randomBool();
+
+            if(addOrSubtract)
+            {
+                outputColor.setA(0);
+            } 
+            else
+            {
+                outputColor.setA(1);
+            }
+
+       }
+
+   }
+
+    return outputColor;
 }
 
 //creates a layout object from a json file
@@ -761,6 +862,12 @@ Layout utils::getLayout(std::string jsonPath)
 
         layout.addXCoordinate(startingX);
         layout.addYCoordinate(startingY);
+
+        if(type == "Canvas")
+        {
+            layout.setCanvasWidth(object["width"].GetInt());
+            layout.setCanvasHeight(object["height"].GetInt());
+        }
 
         if(type == "Box")
         {
@@ -854,8 +961,8 @@ Box utils::parseBox(rapidjson::Value& object, int index)
 	"height": 200,
 	"primaryColor": [100,0,100,0],
 	"borderThickness": 0,
-	"boxOutlineColor": [0,128,128,0]
-	
+	"boxOutlineColor": [0,128,128,0],
+    "isRounded": true
 
     }
     */
@@ -868,6 +975,8 @@ Box utils::parseBox(rapidjson::Value& object, int index)
     Color boxOutlineColor;
 
     int borderThickness = -1;
+
+    bool isRounded = false;
 
     if (object.HasMember("id") && object["id"].IsString()) {
         id = object["id"].GetString();
@@ -900,12 +1009,16 @@ Box utils::parseBox(rapidjson::Value& object, int index)
         borderThickness = object["borderThickness"].GetInt();
     }
 
-    Box outputBox(id, width, height, primaryColor, borderThickness, boxOutlineColor);
+    if (object.HasMember("isRounded")) {
+        
+        isRounded = object["isRounded"].GetBool();
+    }
+
+    Box outputBox(id, width, height, primaryColor, borderThickness, boxOutlineColor, isRounded);
     outputBox.setIndex(index);
 
     return outputBox;
 }
-
 Text utils::parseText(rapidjson::Value& object, int index)
 {
     /*
@@ -913,10 +1026,11 @@ Text utils::parseText(rapidjson::Value& object, int index)
 
 	"id": "element3",
 	"type": "Text",
+    "text": "this is a text",
 	"drawX": 100,
 	"drawY": 50,
 	"textSize": 20,
-	"textColor": [100,0,100,0],
+	"textColor": [100,0,100,0]
 	
     }
     */
@@ -928,7 +1042,7 @@ Text utils::parseText(rapidjson::Value& object, int index)
 
     Color textColor;
 
-    int borderThickness = -1;
+    int borderThickness = 0;
 
     if (object.HasMember("id") && object["id"].IsString()) {
         id = object["id"].GetString();
@@ -953,7 +1067,6 @@ Text utils::parseText(rapidjson::Value& object, int index)
     outputText.setIndex(index);
     return outputText;
 }
-
 Button utils::parseButton(rapidjson::Value& object, int index)
 {
     /* example
@@ -972,7 +1085,7 @@ Button utils::parseButton(rapidjson::Value& object, int index)
         "primaryColor": [100,0,100,0],
         "boxOutlineColor": [0,128,128,0],
         "rounded":true,
-        "textCentered":true,
+        "textCentered":true
 	
     }
     */
@@ -1041,7 +1154,6 @@ Button utils::parseButton(rapidjson::Value& object, int index)
 
     return outputButton;
 }
-
 TextBox utils::parseTextBox(rapidjson::Value& object, int index)
 {
     /* example
@@ -1141,7 +1253,6 @@ TextBox utils::parseTextBox(rapidjson::Value& object, int index)
 
     return outputTextBox;
 }
-
 CheckMark utils::parseCheckBox(rapidjson::Value& object, int index)
 {
     /* example
@@ -1163,7 +1274,7 @@ CheckMark utils::parseCheckBox(rapidjson::Value& object, int index)
 		"checkmarkBoxOutlineColor": [0, 0, 0, 0],
         "containerRounded":true,
         "buttonTextCentered":true,
-		"checkMarkBoxRounded": true,
+		"checkMarkBoxRounded": true
 	
     }
     */
@@ -1249,8 +1360,6 @@ CheckMark utils::parseCheckBox(rapidjson::Value& object, int index)
 
     return outputCheckMark;
 }
-
-
 RadioOption utils::parseRadioOption(rapidjson::Value& object, int index)
 {
     /* example
@@ -1351,7 +1460,6 @@ RadioOption utils::parseRadioOption(rapidjson::Value& object, int index)
 
     return outputRadioOption;
 }
-
 ImagePlaceholder utils::parseImagePlaceholder(rapidjson::Value& object, int index)
 {
     /* example
@@ -1390,7 +1498,6 @@ ImagePlaceholder utils::parseImagePlaceholder(rapidjson::Value& object, int inde
 
     return imagePlaceholder;
 }
-
 Captcha utils::parseCaptcha(rapidjson::Value& object, int index)
 {
     /* example
@@ -1423,4 +1530,102 @@ Captcha utils::parseCaptcha(rapidjson::Value& object, int index)
     captcha.setIndex(index);
 
     return captcha;
+}
+
+int utils::getPixelDiff(std::string imageOne, std::string imageTwo)
+{
+
+    cv::Mat image1, image2, dst;
+    image1 = cv::imread(imageOne + ".bmp", cv::IMREAD_COLOR);
+    image2 = cv::imread(imageTwo + ".bmp", cv::IMREAD_COLOR);
+
+    std::vector<cv::Mat> channels_image_one;
+    std::vector<cv::Mat> channels_image_two;
+    cv::split(image1, channels_image_one);
+    cv::split(image2, channels_image_two);
+
+    cv::Mat blueChannel_image_one = channels_image_one[0];
+    cv::Mat greenChannel_image_one = channels_image_one[1];
+    cv::Mat redChannel_image_one = channels_image_one[2];
+
+    cv::Mat blueChannel_image_two = channels_image_two[0];
+    cv::Mat greenChannel_image_two = channels_image_two[1];
+    cv::Mat redChannel_image_two = channels_image_two[2];
+
+    cv::Mat grayImageOneRedChannel, grayImageOneBlueChannel, grayImageOneGreenChannel;
+    cv::Mat grayImageTwoRedChannel, grayImageTwoBlueChannel, grayImageTwoGreenChannel;
+
+    int blueChannelDifference =  count_diff_pixels(blueChannel_image_one, blueChannel_image_two);
+    int redChannelDifference =  count_diff_pixels(redChannel_image_one, redChannel_image_two);
+    int greenChannelDifference =  count_diff_pixels(greenChannel_image_one, greenChannel_image_two);
+
+    int pixelDiffSum = blueChannelDifference + redChannelDifference + greenChannelDifference;
+
+    return pixelDiffSum;
+}
+
+int utils::count_diff_pixels(cv::Mat in1, cv::Mat in2)
+{
+    cv::Mat diff;
+    cv::compare(in1, in2, diff, cv::CMP_NE);
+    return cv::countNonZero(diff);
+}
+
+std::string utils::mutateString(std::string originalString)
+{
+    bool doSomething = randomBool();
+    std::string outputString = originalString;
+
+    if(doSomething)
+    {
+        int decisionNumber = randomInt(0, 100);
+
+        //add character at end
+        if(decisionNumber <= 25)
+        {
+            outputString += randomCharacter();
+        }
+
+        //subtract character from end
+        else if(decisionNumber <= 50 && outputString.length() > 0)
+        {
+            outputString.pop_back();
+        }
+
+        //remove character at index
+        else if(decisionNumber <= 75 && outputString.length() > 0)
+        {
+            int randomIndex = randomInt(0, outputString.length() - 1);
+
+            outputString.erase(randomIndex, 1);
+        }
+
+        //add character at index
+        else if(decisionNumber <= 100)
+        {
+            int randomIndex = randomInt(0, outputString.length() - 1);
+
+            outputString.insert(randomIndex, 1, randomCharacter());
+
+        }
+    }
+
+    return outputString;
+}
+
+Layout utils::mutateLayout(Layout layout)
+{
+
+    return layout;
+}
+
+char utils::randomCharacter()
+{
+    //97 characters
+    std::string asciiCharacters = " !\"#$%&\\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+
+    int randomNum = randomInt(0, 96);
+
+
+    return asciiCharacters.at(randomNum);
 }

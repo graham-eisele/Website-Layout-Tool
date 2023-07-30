@@ -1,0 +1,78 @@
+Create a layout that has the following color as the background: rgb(23,126,177). In the middle there is a box that holds different elements that are content. The color of this box is: rgb(255,255,255). In this box there are four text elements with the following text labels: "Thank you for agreeing to participate in this survey.","We encourage you to respond with honest and candid answers. Your answers are confidential and will be anonymized.","The survey should take about 20 minutes to complete.",and "When you are ready to move on to the next page, click the "Next" button located at the bottom right of the screen.".In the bottom right of the content box there is a blue button with the text label: "Next>>":
+
+[
+  {
+  "type": "Box",
+  "id": "background",
+  "primaryColor": [23, 126, 177, 1],
+  "width": 1920,
+  "height": 1080,
+  "drawX": 0,
+  "drawY": 0
+  },
+  
+  {
+  "type": "Box",
+  "id": "contentBox",
+  "primaryColor": [255, 255, 255, 1],
+  "width": 1600,
+  "height": 565,
+  "drawX": 160,
+  "drawY": 233
+  },
+  
+  {
+  "type": "Text",
+  "id": "text1",
+  "text": "Thank you for agreeing to participate in this survey.",
+  "drawX": 184,
+  "drawY": 388,
+  "textSize": 26,
+  "textColor": [0, 0, 0, 1]
+  },
+  
+  {
+  "type": "Text",
+  "id": "text2",
+  "text": "We encourage you to respond with honest and candid answers. Your answers are confidential and will be anonymized.",
+  "drawX": 184,
+  "drawY": 462,
+  "textSize": 26,
+  "textColor": [0, 0, 0, 1]
+  },
+  
+  {
+  "type": "Text",
+  "id": "text3",
+  "text": "The survey should take about 20 minutes to complete.",
+  "drawX": 184,
+  "drawY": 526,
+  "textSize": 26,
+  "textColor": [0, 0, 0, 1]
+  },
+  
+  {
+  "type": "Text",
+  "id": "text4",
+  "text": "When you are ready to move on to the next page, click the \"Next\" button located at the bottom right of the screen.",
+  "drawX": 184,
+  "drawY": 588,
+  "textSize": 26,
+  "textColor": [0, 0, 0, 1]
+  },
+  
+  {
+  "type": "Button",
+  "id": "nextButton",
+  "text": "Next>>",
+  "drawX": 1622,
+  "drawY": 728,
+  "width": 114,
+  "height": 43,
+  "textSize": 20,
+  "textColor": [255, 255, 255, 1],
+  "primaryColor": [23, 126, 177, 1],
+  "rounded": true,
+  "textCentered": true
+  }
+  ]

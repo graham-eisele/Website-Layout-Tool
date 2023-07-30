@@ -7,19 +7,24 @@ class Box
 {
 public:
     //default box constructor
-    Box(std::string id, int w, int h, Color primaryColor, int borderThickness, Color boxOutlineColor);
-
+    Box(std::string id, int w, int h, Color primaryColor, int borderThickness, Color boxOutlineColor, bool isRounded);
+    
     const int getWidth();
     const int getHeight();
     const int getBorderThickness();
 
+
+    const bool rounded();
+
     Color getPrimaryColor();
     Color getBoxOutlineColor();
 
-    std::string getId();
+    const std::string getId();
 
     void setIndex(int index);
     int getIndex();
+
+    void mutate();
 
 private:
     
@@ -34,6 +39,8 @@ private:
     std::string id;
 
     int index;
+
+    bool isRounded;
     
 };
 #endif

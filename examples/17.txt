@@ -1,0 +1,321 @@
+Create a layout that has the following color as the background: rgb(35,31,32). In the middle there is a box that holds different elements that are content. The color of this box is: rgb(240,240,240). In this box there is a text element with the text: "What activities have you used each of the following devices for in the past month?" and below there is another text element that says "For each device below, please select all that apply. If you have not used the device , or have not used it for the activities listed, please select "None of these" for the device." Below this there is there are two rows and four columns of checkmarks. The two labels for the rows are "Windows desktop and/or laptop comptuter" and "iPhone". The four column labels are "Browsing the internet","Using social media","Watching movies,TV,or other videos","Playing games",and "None of these". In the bottom right of the content box there is a green button with the text label: ">>":
+
+ [
+  {
+    "id": "background",
+    "type": "Box",
+    "primaryColor": [35, 31, 32, 1], 
+    "width": 1920,
+    "height": 1080,
+    "drawX": 0,
+    "drawY": 0
+  },
+
+  {
+    "id": "contentBox",
+    "type": "Box",
+    "primaryColor": [240, 240, 240, 1],
+    "width": 962, 
+    "height": 800,
+    "drawX": 480, 
+    "drawY": 200
+  },
+
+  {
+    "id": "instructionText1",
+    "type": "Text",
+    "text": "What activities have you used each of the following devices for in the past \nmonth?",
+    "drawX": 525,
+    "drawY": 230,
+    "textSize": 22,
+    "textColor": [76, 79, 85, 1]
+  },
+  
+  {
+    "id": "instructionText2",
+    "type": "Text",
+    "text": "For each device below, please select all that apply. If you have not used the device, or have not used \nit for the activities listed, please select \"None of these\" for the device.",
+    "drawX": 525,
+    "drawY": 280,
+    "textSize": 19,
+    "textColor": [76, 79, 85, 1] 
+  },
+
+  {
+    "id": "windowsRowLabel",
+    "type": "Text",
+    "text": "Windows desktop\nand/or laptop \ncomputer",
+    "drawX": 530,
+    "drawY": 520,
+    "textSize": 19,
+    "textColor": [76, 79, 85, 1] 
+  },
+  {
+    "id": "iphoneRowLabel",
+    "type": "Text",
+    "text": "iPhone",
+    "drawX": 540,
+    "drawY": 760,
+    "textSize": 19,
+    "textColor": [76, 79, 85, 1] 
+  },
+  {
+    "id": "internetColumnLabel",
+    "type": "Text",
+    "text": "Browsing \nthe Internet",
+    "drawX": 768,
+    "drawY": 420,
+    "textSize": 19,
+    "textColor": [76, 79, 85, 1] 
+  },
+  {
+    "id": "socialMediaColumnLabel",
+    "type": "Text",
+    "text": "Using \nsocial \nmedia",
+    "drawX": 913,
+    "drawY": 420,
+    "textSize": 19,
+    "textColor": [76, 79, 85, 1] 
+  },
+  {
+    "id": "mediaColumnLabel",
+    "type": "Text",
+    "text": "Watching\nmovies, TV,\n or other\nvideos",
+    "drawX": 1015,
+    "drawY": 420,
+    "textSize": 19,
+    "textColor": [76, 79, 85, 1] 
+  },
+  {
+    "id": "videogamesColumn",
+    "type": "Text",
+    "text": "Playing\ngames",
+    "drawX": 1165,
+    "drawY": 420,
+    "textSize": 19,
+    "textColor": [76, 79, 85, 1] 
+  },
+  {
+    "id": "noneColum",
+    "type": "Text",
+    "text": "None of \nthese",
+    "drawX": 1315,
+    "drawY": 420,
+    "textSize": 19,
+    "textColor": [76, 79, 85, 1] 
+  },
+  {
+    "id": "continueButton",
+    "type": "Button", 
+    "text": ">>",
+    "drawX": 1319,
+    "drawY": 900,
+    "width": 73,
+    "height": 43,
+    "textSize": 20,
+    "textColor": [255, 255, 255, 1],
+    "primaryColor": [140, 197, 64, 1], 
+    "rounded": true,
+    "textCentered": true
+  },
+  {
+
+    "id": "checkMarkWindowsDesktop_Internet",
+    "type": "CheckMark",
+    "drawX": 800,
+    "drawY": 520,
+    "width": 22,
+    "height": 22,
+    "text": "",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [0,0,0,0],
+    "primaryColor": [0,0,0,0],
+    "containerOutlineColor":[0,0,0,0],
+    "checkmarkBoxFillColor": [240,240,240,1],
+    "checkmarkBoxOutlineColor": [0, 0, 0, 1],
+    "containerRounded":true,
+    "buttonTextCentered":true,
+    "checkMarkBoxRounded": false
+  },
+  {
+
+    "id": "checkMarkWindowsDesktop_Social_Media",
+    "type": "CheckMark",
+    "drawX": 925,
+    "drawY": 520,
+    "width": 22,
+    "height": 22,
+    "text": "",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [0,0,0,0],
+    "primaryColor": [0,0,0,0],
+    "containerOutlineColor":[0,0,0,0],
+    "checkmarkBoxFillColor": [240,240,240,1],
+    "checkmarkBoxOutlineColor": [0, 0, 0, 1],
+    "containerRounded":true,
+    "buttonTextCentered":true,
+    "checkMarkBoxRounded": false
+  },
+  {
+
+    "id": "checkMarkWindowsDesktop_Movies_TV",
+    "type": "CheckMark",
+    "drawX": 1035,
+    "drawY": 520,
+    "width": 22,
+    "height": 22,
+    "text": "",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [0,0,0,0],
+    "primaryColor": [0,0,0,0],
+    "containerOutlineColor":[0,0,0,0],
+    "checkmarkBoxFillColor": [240,240,240,1],
+    "checkmarkBoxOutlineColor": [0, 0, 0, 1],
+    "containerRounded":true,
+    "buttonTextCentered":true,
+    "checkMarkBoxRounded": false
+  },
+  {
+
+    "id": "checkMarkWindowsDesktop_Playing_Games",
+    "type": "CheckMark",
+    "drawX": 1180,
+    "drawY": 520,
+    "width": 22,
+    "height": 22,
+    "text": "",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [0,0,0,0],
+    "primaryColor": [0,0,0,0],
+    "containerOutlineColor":[0,0,0,0],
+    "checkmarkBoxFillColor": [240,240,240,1],
+    "checkmarkBoxOutlineColor": [0, 0, 0, 1],
+    "containerRounded":true,
+    "buttonTextCentered":true,
+    "checkMarkBoxRounded": false
+  },
+  {
+
+    "id": "checkMarkWindowsDesktop_None",
+    "type": "CheckMark",
+    "drawX": 1333,
+    "drawY": 520,
+    "width": 22,
+    "height": 22,
+    "text": "",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [0,0,0,0],
+    "primaryColor": [0,0,0,0],
+    "containerOutlineColor":[0,0,0,0],
+    "checkmarkBoxFillColor": [240,240,240,1],
+    "checkmarkBoxOutlineColor": [0, 0, 0, 1],
+    "containerRounded":true,
+    "buttonTextCentered":true,
+    "checkMarkBoxRounded": false
+  },
+  {
+
+    "id": "checkMarkIphone_Internet",
+    "type": "CheckMark",
+    "drawX": 800,
+    "drawY": 767,
+    "width": 22,
+    "height": 22,
+    "text": "",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [0,0,0,0],
+    "primaryColor": [0,0,0,0],
+    "containerOutlineColor":[0,0,0,0],
+    "checkmarkBoxFillColor": [240,240,240,1],
+    "checkmarkBoxOutlineColor": [0, 0, 0, 1],
+    "containerRounded":true,
+    "buttonTextCentered":true,
+    "checkMarkBoxRounded": false
+  },
+  {
+
+    "id": "checkMarkIphone_Social_Media",
+    "type": "CheckMark",
+    "drawX": 925,
+    "drawY": 767,
+    "width": 22,
+    "height": 22,
+    "text": "",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [0,0,0,0],
+    "primaryColor": [0,0,0,0],
+    "containerOutlineColor":[0,0,0,0],
+    "checkmarkBoxFillColor": [240,240,240,1],
+    "checkmarkBoxOutlineColor": [0, 0, 0, 1],
+    "containerRounded":true,
+    "buttonTextCentered":true,
+    "checkMarkBoxRounded": false
+  },
+  {
+
+    "id": "checkMarkIphone_Movies_TV",
+    "type": "CheckMark",
+    "drawX": 1035,
+    "drawY": 767,
+    "width": 22,
+    "height": 22,
+    "text": "",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [0,0,0,0],
+    "primaryColor": [0,0,0,0],
+    "containerOutlineColor":[0,0,0,0],
+    "checkmarkBoxFillColor": [240,240,240,1],
+    "checkmarkBoxOutlineColor": [0, 0, 0, 1],
+    "containerRounded":true,
+    "buttonTextCentered":true,
+    "checkMarkBoxRounded": false
+  },
+  {
+
+    "id": "checkMarkIphone_Playing_Games",
+    "type": "CheckMark",
+    "drawX": 1180,
+    "drawY": 767,
+    "width": 22,
+    "height": 22,
+    "text": "",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [0,0,0,0],
+    "primaryColor": [0,0,0,0],
+    "containerOutlineColor":[0,0,0,0],
+    "checkmarkBoxFillColor": [240,240,240,1],
+    "checkmarkBoxOutlineColor": [0, 0, 0, 1],
+    "containerRounded":true,
+    "buttonTextCentered":true,
+    "checkMarkBoxRounded": false
+  },
+  {
+
+    "id": "checkMarkIphone_None",
+    "type": "CheckMark",
+    "drawX": 1333,
+    "drawY": 767,
+    "width": 22,
+    "height": 22,
+    "text": "",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [0,0,0,0],
+    "primaryColor": [0,0,0,0],
+    "containerOutlineColor":[0,0,0,0],
+    "checkmarkBoxFillColor": [240,240,240,1],
+    "checkmarkBoxOutlineColor": [0, 0, 0, 1],
+    "containerRounded":true,
+    "buttonTextCentered":true,
+    "checkMarkBoxRounded": false
+  }
+]

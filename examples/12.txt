@@ -1,0 +1,481 @@
+Create a layout that has a text element at the top that says "How likely is it that you would recommend this brand to a friend or colleague?" and then another text element below that saying "Select one in each row." Then finally, one more text element below that saying "Sauces, Dressings, & Condiments". Under that there are two rows of ten buttons that are numbered 1-10. The two row labels are "Kraft" and "Hidden Valley". There are only two column labels though, one in the top left saying "not at all likely" and one at the top right saying "extremely likely":
+[
+  {
+    "id": "headerText",
+    "type": "Text", 
+    "text": "How likely is it that you would recommend this brand to a friend or colleague?",
+    "drawX": 350,
+    "drawY": 100,
+    "textSize": 20,
+    "textColor": [44, 62, 80, 1]
+  },
+  
+  { 
+    "id": "instructionText",
+    "type": "Text",
+    "text": "Select one in each row.",
+    "drawX": 350,
+    "drawY": 130,
+    "textSize": 16,
+    "textColor": [44, 62, 80, 1]
+  },
+  {
+    "id":"divider1",
+    "type": "Box",
+    "drawX": 470,
+    "drawY": 200,
+    "width": 900,
+    "height": 50,
+    "primaryColor": [240, 240, 240, 1],
+    "borderThickness": 0,
+    "boxOutlineColor": [0, 0, 0, 0]
+  },
+  {
+    "id": "categoryText",
+    "type": "Text", 
+    "text": "Sauces, Dressings, & Condiments",
+    "drawX": 350,
+    "drawY": 160,
+    "textSize": 20,
+    "textColor": [44, 62, 80, 1]
+  },  
+  {
+    "id": "kraftRowLabel",
+    "type": "Text",
+    "text": "Kraft",
+    "drawX": 350,
+    "drawY": 275,
+    "textSize": 18,
+    "textColor": [44, 62, 80, 1]
+  },
+ 
+  {
+  
+	
+      "id": "kraftRating1Button",
+      "type": "Button",
+      "drawX": 475,
+      "drawY": 275,
+      "width": 50,
+      "height": 50,
+      "text": "1",
+      "textSize": 20,
+      "borderThickness": 0,
+      "textColor": [87,80,73,1],
+      "primaryColor": [242,242,242,1],
+      "boxOutlineColor": [0,128,128,1],
+      "rounded":true,
+      "textCentered":true
+  
+    
+  },
+  {
+  
+	
+    "id": "kraftRating2Button",
+    "type": "Button",
+    "drawX": 565,
+    "drawY": 275,
+    "width": 50,
+    "height": 50,
+    "text": "2",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  
+},
+{
+  
+	
+  "id": "kraftRating3Button",
+  "type": "Button",
+  "drawX": 655,
+  "drawY": 275,
+  "width": 50,
+  "height": 50,
+  "text": "3",
+  "textSize": 20,
+  "borderThickness": 0,
+  "textColor": [87,80,73,1],
+  "primaryColor": [242,242,242,1],
+  "boxOutlineColor": [0,128,128,1],
+  "rounded":true,
+  "textCentered":true
+
+
+},
+{
+  
+	
+  "id": "kraftRating4Button",
+  "type": "Button",
+  "drawX": 745,
+  "drawY": 275,
+  "width": 50,
+  "height": 50,
+  "text": "4",
+  "textSize": 20,
+  "borderThickness": 0,
+  "textColor": [87,80,73,1],
+  "primaryColor": [242,242,242,1],
+  "boxOutlineColor": [0,128,128,1],
+  "rounded":true,
+  "textCentered":true
+
+
+},
+{
+  
+	
+  "id": "kraftRating5Button",
+  "type": "Button",
+  "drawX": 835,
+  "drawY": 275,
+  "width": 50,
+  "height": 50,
+  "text": "5",
+  "textSize": 20,
+  "borderThickness": 0,
+  "textColor": [87,80,73,1],
+  "primaryColor": [242,242,242,1],
+  "boxOutlineColor": [0,128,128,1],
+  "rounded":true,
+  "textCentered":true
+
+
+},
+{
+  
+	
+  "id": "kraftRating6Button",
+  "type": "Button",
+  "drawX": 925,
+  "drawY": 275,
+  "width": 50,
+  "height": 50,
+  "text": "6",
+  "textSize": 20,
+  "borderThickness": 0,
+  "textColor": [87,80,73,1],
+  "primaryColor": [242,242,242,1],
+  "boxOutlineColor": [0,128,128,1],
+  "rounded":true,
+  "textCentered":true
+
+
+},
+{
+  
+	
+  "id": "kraftRating7Button",
+  "type": "Button",
+  "drawX": 1015,
+  "drawY": 275,
+  "width": 50,
+  "height": 50,
+  "text": "7",
+  "textSize": 20,
+  "borderThickness": 0,
+  "textColor": [87,80,73,1],
+  "primaryColor": [242,242,242,1],
+  "boxOutlineColor": [0,128,128,1],
+  "rounded":true,
+  "textCentered":true
+
+
+},
+{
+  
+	
+  "id": "kraftRating8Button",
+  "type": "Button",
+  "drawX": 1105,
+  "drawY": 275,
+  "width": 50,
+  "height": 50,
+  "text": "8",
+  "textSize": 20,
+  "borderThickness": 0,
+  "textColor": [87,80,73,1],
+  "primaryColor": [242,242,242,1],
+  "boxOutlineColor": [0,128,128,1],
+  "rounded":true,
+  "textCentered":true
+
+
+},
+{
+  
+	
+  "id": "kraftRating9Button",
+  "type": "Button",
+  "drawX": 1195,
+  "drawY": 275,
+  "width": 50,
+  "height": 50,
+  "text": "9",
+  "textSize": 20,
+  "borderThickness": 0,
+  "textColor": [87,80,73,1],
+  "primaryColor": [242,242,242,1],
+  "boxOutlineColor": [0,128,128,1],
+  "rounded":true,
+  "textCentered":true
+
+
+},
+{
+  
+	
+  "id": "kraftRating10Button",
+  "type": "Button",
+  "drawX": 1285,
+  "drawY": 275,
+  "width": 50,
+  "height": 50,
+  "text": "10",
+  "textSize": 20,
+  "borderThickness": 0,
+  "textColor": [87,80,73,1],
+  "primaryColor": [242,242,242,1],
+  "boxOutlineColor": [0,128,128,1],
+  "rounded":true,
+  "textCentered":true
+
+
+},
+  {
+    "id": "hiddenValleyLabel",
+    "type": "Text",
+    "text": "Hidden Valley",
+    "drawX": 350,
+    "drawY": 360,
+    "textSize": 18,
+    "textColor": [44, 62, 80, 1]
+  },
+  {
+  
+	
+    "id": "hiddenValleyRating1Button",
+    "type": "Button",
+    "drawX": 475,
+    "drawY": 350,
+    "width": 50,
+    "height": 50,
+    "text": "1",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  
+},
+{
+
+
+  "id": "hiddenValleyRating2Button",
+  "type": "Button",
+  "drawX": 565,
+  "drawY": 350,
+  "width": 50,
+  "height": 50,
+  "text": "2",
+  "textSize": 20,
+  "borderThickness": 0,
+  "textColor": [87,80,73,1],
+  "primaryColor": [242,242,242,1],
+  "boxOutlineColor": [0,128,128,1],
+  "rounded":true,
+  "textCentered":true
+
+
+},
+{
+
+
+"id": "hiddenValleyRating3Button",
+"type": "Button",
+"drawX": 655,
+"drawY": 350,
+"width": 50,
+"height": 50,
+"text": "3",
+"textSize": 20,
+"borderThickness": 0,
+"textColor": [87,80,73,1],
+"primaryColor": [242,242,242,1],
+"boxOutlineColor": [0,128,128,1],
+"rounded":true,
+"textCentered":true
+
+
+},
+{
+
+
+"id": "hiddenValleyRating4Button",
+"type": "Button",
+"drawX": 745,
+"drawY": 350,
+"width": 50,
+"height": 50,
+"text": "4",
+"textSize": 20,
+"borderThickness": 0,
+"textColor": [87,80,73,1],
+"primaryColor": [242,242,242,1],
+"boxOutlineColor": [0,128,128,1],
+"rounded":true,
+"textCentered":true
+
+
+},
+{
+
+
+"id": "hiddenValleyRating5Button",
+"type": "Button",
+"drawX": 835,
+"drawY": 350,
+"width": 50,
+"height": 50,
+"text": "5",
+"textSize": 20,
+"borderThickness": 0,
+"textColor": [87,80,73,1],
+"primaryColor": [242,242,242,1],
+"boxOutlineColor": [0,128,128,1],
+"rounded":true,
+"textCentered":true
+
+
+},
+{
+
+
+"id": "hiddenValleyRating6Button",
+"type": "Button",
+"drawX": 925,
+"drawY": 350,
+"width": 50,
+"height": 50,
+"text": "6",
+"textSize": 20,
+"borderThickness": 0,
+"textColor": [87,80,73,1],
+"primaryColor": [242,242,242,1],
+"boxOutlineColor": [0,128,128,1],
+"rounded":true,
+"textCentered":true
+
+
+},
+{
+
+
+"id": "hiddenValleyRating7Button",
+"type": "Button",
+"drawX": 1015,
+"drawY": 350,
+"width": 50,
+"height": 50,
+"text": "7",
+"textSize": 20,
+"borderThickness": 0,
+"textColor": [87,80,73,1],
+"primaryColor": [242,242,242,1],
+"boxOutlineColor": [0,128,128,1],
+"rounded":true,
+"textCentered":true
+
+
+},
+{
+
+
+"id": "hiddenValleyRating8Button",
+"type": "Button",
+"drawX": 1105,
+"drawY": 350,
+"width": 50,
+"height": 50,
+"text": "8",
+"textSize": 20,
+"borderThickness": 0,
+"textColor": [87,80,73,1],
+"primaryColor": [242,242,242,1],
+"boxOutlineColor": [0,128,128,1],
+"rounded":true,
+"textCentered":true
+
+
+},
+{
+
+
+"id": "hiddenValleyRating9Button",
+"type": "Button",
+"drawX": 1195,
+"drawY": 350,
+"width": 50,
+"height": 50,
+"text": "9",
+"textSize": 20,
+"borderThickness": 0,
+"textColor": [87,80,73,1],
+"primaryColor": [242,242,242,1],
+"boxOutlineColor": [0,128,128,1],
+"rounded":true,
+"textCentered":true
+
+
+},
+{
+
+
+"id": "hiddenValleyRating10Button",
+"type": "Button",
+"drawX": 1285,
+"drawY": 350,
+"width": 50,
+"height": 50,
+"text": "10",
+"textSize": 20,
+"borderThickness": 0,
+"textColor": [87,80,73,1],
+"primaryColor": [242,242,242,1],
+"boxOutlineColor": [0,128,128,1],
+"rounded":true,
+"textCentered":true
+
+
+},
+  {
+    "id": "notLikelyLabel", 
+    "type": "Text",
+    "text": "Not at all likely",
+    "drawX": 475,
+    "drawY": 215,
+    "textSize": 16,
+    "textColor": [44, 62, 80, 1]
+  },
+
+  {
+    "id": "extremelyLikelyLabel",
+    "type": "Text",
+    "text": "Extremely likely",
+    "drawX": 1250,
+    "drawY": 215,
+    "textSize": 16,
+    "textColor": [44, 62, 80, 1]
+  }
+
+]

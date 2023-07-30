@@ -1,4 +1,5 @@
 #include "../headers/Captcha.h"
+#include "../headers/utils.h"
 #include <iostream>
 
 Captcha::Captcha(std::string id, int w)
@@ -26,4 +27,9 @@ void Captcha::setIndex(int index)
 int Captcha::getIndex()
 {
     return index;
+}
+
+void Captcha::mutate()
+{
+    width = utils::mutateInt(width, 1920);
 }

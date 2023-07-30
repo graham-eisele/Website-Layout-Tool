@@ -1,0 +1,111 @@
+Create a layout that has the following color as the background: rgb(35,31,32). In the middle there is a box that holds different elements that are content. The color of this box is: rgb(240,240,240). In this box there is a text element with the text: "What is your gender?" and below are two radio options for male and female. Then below that, there is another text element saying "What is your age?" and a textbox element below that text element. In the bottom right of the content box there is a green button with the text label: ">>". 
+
+[
+  {
+    "id": "Box1",
+    "type": "Box",
+    "primaryColor": [35, 31, 32, 1],
+    "width": 1920,
+    "height": 1080,
+    "drawX":0,
+    "drawY":0
+  },
+
+  {
+    "id": "Box2",
+    "type": "Box", 
+    "drawX": 480,
+    "drawY": 338,
+    "width": 962,
+    "height": 500,
+    "primaryColor": [240, 240, 240, 1]
+  },
+
+  {
+    "type": "Text",
+    "text": "What is your gender?",
+    "drawX": 528,
+    "drawY": 368,
+    "textSize": 27,
+    "textColor": [67, 70, 77, 1]
+  },
+
+  {
+      "id": "maleOption",
+      "type": "RadioOption",
+      "drawX": 535,
+      "drawY": 420,
+      "width": 100,
+      "height": 25,
+      "text": "Male",
+      "textSize": 22,
+      "borderThickness": 0,
+      "textColor": [0,0,0,1],
+      "primaryColor": [0,0,0,0],
+      "boxOutlineColor":[0,0,0,0],
+      "circleFillColor": [241,241,241,1],
+      "circleOutlineColor": [0, 0, 0, 1],
+      "containerRounded":false,
+      "containerTextCentered":false
+  },
+  {
+    "id": "femaleOption",
+    "type": "RadioOption",
+    "drawX": 535,
+    "drawY": 455,
+    "width": 100,
+    "height": 25,
+    "text": "Female",
+    "textSize": 22,
+    "borderThickness": 0,
+    "textColor": [0,0,0,1],
+    "primaryColor": [0,0,0,0],
+    "boxOutlineColor":[0,0,0,0],
+    "circleFillColor": [241,241,241,1],
+    "circleOutlineColor": [0, 0, 0, 1],
+    "containerRounded":false,
+    "containerTextCentered":false
+},
+{
+  "type": "Text",
+  "text": "What is your age?",
+  "drawX": 528,
+  "drawY": 565,
+  "textSize": 27,
+  "textColor": [67, 70, 77, 1]
+},
+{
+	
+  "id": "ageTextBox",
+  "type": "TextBox",
+  "drawX": 530,
+  "drawY": 620,
+  "width": 150,
+  "height": 30,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 2,
+  "textColor": [0,0,0,0],
+  "primaryColor": [255,255,255,1],
+  "boxOutlineColor": [210,210,214,1],
+  "underlineColor": [0, 0, 0, 0],
+  "textBoxRounded":true,
+  "textCentered":false,
+  "hasUnderLine": false
+
+},
+{
+  "id": "continueButton",
+  "type": "Button", 
+  "text": ">>",
+  "drawX": 1319,
+  "drawY": 767,
+  "width": 73,
+  "height": 43,
+  "textSize": 20,
+  "textColor": [255, 255, 255, 1],
+  "primaryColor": [140, 197, 64, 1], 
+  "rounded": true,
+  "textCentered": true
+}
+]

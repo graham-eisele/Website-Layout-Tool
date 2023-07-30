@@ -1,134 +1,105 @@
 [
-    {
-      "id": "element1",
-      "type": "Text",
-      "drawX": 50,
-      "drawY": 30,
-      "text": "Welcome to the Survey!",
-      "textSize": 40,
-      "textColor": [0, 0, 0, 1]
-    },
-    {
-      "id": "element2",
-      "type": "TextBox",
-      "drawX": 50,
-      "drawY": 100,
-      "width": 300,
-      "height": 150,
-      "text": "Please tell us your feedback.",
-      "textSize": 20,
-      "borderThickness": 2,
-      "textColor": [0, 0, 0, 1],
-      "primaryColor": [255, 255, 255, 1],
-      "boxOutlineColor": [0, 128, 128, 1],
-      "textBoxRounded": true,
-      "textCentered": true,
-      "hasUnderLine": false
-    },
-    {
-      "id": "element3",
-      "type": "CheckMark",
-      "drawX": 50,
-      "drawY": 300,
-      "width": 20,
-      "height": 20,
-      "text": "Option 1",
-      "textSize": 16,
-      "borderThickness": 2,
-      "textColor": [0, 0, 0, 1],
-      "primaryColor": [255, 255, 255, 1],
-      "containerOutlineColor": [0, 128, 128, 1],
-      "checkmarkBoxFillColor": [0, 128, 128, 1],
-      "checkmarkBoxOutlineColor": [0, 0, 0, 1],
-      "containerRounded": true,
-      "buttonTextCentered": false,
-      "checkMarkBoxRounded": true
-    },
-    {
-      "id": "element4",
-      "type": "CheckMark",
-      "drawX": 50,
-      "drawY": 350,
-      "width": 20,
-      "height": 20,
-      "text": "Option 2",
-      "textSize": 16,
-      "borderThickness": 2,
-      "textColor": [0, 0, 0, 1],
-      "primaryColor": [255, 255, 255, 1],
-      "containerOutlineColor": [0, 128, 128, 1],
-      "checkmarkBoxFillColor": [0, 128, 128, 1],
-      "checkmarkBoxOutlineColor": [0, 0, 0, 1],
-      "containerRounded": true,
-      "buttonTextCentered": false,
-      "checkMarkBoxRounded": true
-    },
-    {
-      "id": "element5",
-      "type": "RadioOption",
-      "drawX": 50,
-      "drawY": 400,
-      "width": 20,
-      "height": 20,
-      "text": "Option A",
-      "textSize": 16,
-      "borderThickness": 2,
-      "textColor": [0, 0, 0, 1],
-      "primaryColor": [255, 255, 255, 1],
-      "boxOutlineColor": [0, 128, 128, 1],
-      "circleFillColor": [0, 128, 128, 1],
-      "circleOutlineColor": [0, 0, 0, 1],
-      "containerRounded": true,
-      "containerTextCentered": false
-    },
-    {
-      "id": "element6",
-      "type": "RadioOption",
-      "drawX": 50,
-      "drawY": 450,
-      "width": 20,
-      "height": 20,
-      "text": "Option B",
-      "textSize": 16,
-      "borderThickness": 2,
-      "textColor": [0, 0, 0, 1],
-      "primaryColor": [255, 255, 255, 1],
-      "boxOutlineColor": [0, 128, 128, 1],
-      "circleFillColor": [0, 128, 128, 1],
-      "circleOutlineColor": [0, 0, 0, 1],
-      "containerRounded": true,
-      "containerTextCentered": false
-    },
-    {
-      "id": "element7",
-      "type": "ImagePlaceholder",
-      "drawX": 50,
-      "drawY": 500,
-      "width": 150,
-      "height": 150
-    },
-    {
-      "id": "element8",
-      "type": "Captcha",
-      "drawX": 50,
-      "drawY": 680,
-      "width": 200
-    },
-    {
-      "id": "element9",
-      "type": "Button",
-      "drawX": 50,
-      "drawY": 800,
-      "width": 150,
-      "height": 50,
-      "text": "Submit",
-      "textSize": 20,
-      "borderThickness": 2,
-      "textColor": [255, 255, 255, 1],
-      "primaryColor": [0, 128, 128, 1],
-      "boxOutlineColor": [0, 128, 128, 1],
-      "rounded": true,
-      "textCentered": true
-    }
-  ]
+  {
+    "type":"Canvas",
+    "width":1920,
+    "height":1080
+  },
+
+  {
+    "type": "Box", 
+    "id": "background",
+    "primaryColor": [23, 126, 177, 1],
+    "width": 1920, 
+    "height": 1080,
+    "drawX": 0,
+    "drawY": 0
+  },
+
+  {
+    "type": "Box",
+    "id": "contentBox",
+    "primaryColor": [255, 255, 255, 1], 
+    "width": 1600,
+    "height": 528,
+    "drawX": 165,
+    "drawY": 232,
+    "isRounded":true
+  },
+
+  {
+    "type": "Text",
+    "id": "text1",
+    "text": "First, we will ask you a few questions to determine if you qualify for the study.",
+    "drawX": 580,
+    "drawY": 360, 
+    "textSize": 20,
+    "textColor": [0, 0, 0, 1]
+  },
+
+  {
+    "type": "Text", 
+    "id": "text2",
+    "text": "How old are you?",
+    "drawX": 580,
+    "drawY": 400,
+    "textSize": 20,
+    "textColor": [0, 0, 0, 1]
+  },
   
+  {
+    "type": "TextBox",
+    "id": "ageTextBox",
+    "drawX": 580,
+    "drawY": 440,
+    "width": 100,
+    "height": 30,
+    "text": "",
+    "textSize": 18,
+    "borderThickness": 2,
+    "textColor": [0, 0, 0, 1],
+    "primaryColor": [255, 255, 255, 1], 
+    "boxOutlineColor": [0, 0, 0, 1],
+    "textBoxRounded": false,
+    "textCentered": false
+  },
+  
+  {
+    "type": "Text",
+    "id": "yearsOldText",
+    "text": "years old", 
+    "drawX": 690,
+    "drawY": 445,
+    "textSize": 18,
+    "textColor": [0, 0, 0, 1]
+  },
+  
+  {
+    "type": "Button", 
+    "id": "nextButton",
+    "text": "Next>>",
+    "drawX": 700,
+    "drawY": 320,
+    "width": 80,
+    "height": 40,
+    "textSize": 18,
+    "textColor": [255, 255, 255, 1],
+    "primaryColor": [23, 126, 177, 1],
+    "rounded": true,
+    "textCentered": true
+  },
+  
+  {
+    "type": "Button",
+    "id": "prevButton",
+    "text": "<<Prev",
+    "drawX": 100,
+    "drawY": 320,
+    "width": 80,
+    "height": 40,
+    "textSize": 18,
+    "textColor": [255, 255, 255, 1],
+    "primaryColor": [23, 126, 177, 1],
+    "rounded": true,
+    "textCentered": true
+  }
+]

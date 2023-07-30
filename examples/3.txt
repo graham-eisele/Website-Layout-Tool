@@ -1,0 +1,62 @@
+Here is an example of a layout that has a captcha for user verification and a button with a label saying "Submit" at the bottom.
+[
+  {
+      "id": "header1",
+      "type": "Box",
+      "drawX": 0,
+      "drawY": 137,
+      "width": 1920,
+      "height": 880,
+      "primaryColor": [239, 239, 239, 1],
+      "borderThickness": 0,
+      "boxOutlineColor": [0, 0, 0, 0]
+  },
+  {
+    "id": "header2",
+    "type": "Box",
+    "drawX": 192,
+    "drawY": 137,
+    "width": 1540,
+    "height": 420,
+    "primaryColor": [255, 255, 255, 1],
+    "borderThickness": 0,
+    "boxOutlineColor": [0, 0, 0, 0]
+  },
+  {
+
+    "id": "element3",
+    "type": "Text",
+    "text":"reCaptcha",
+    "drawX": 230,
+    "drawY": 200,
+    "textSize": 20,
+    "textColor": [70,86,102,1]
+    
+  },
+  {
+	
+    "id": "captcha",
+    "type": "Captcha",
+    "drawX": 308,
+    "drawY": 240,
+    "width": 375
+  },
+  {
+	
+    "id": "submitButton",
+    "type": "Button",
+    "drawX": 930,
+    "drawY": 360,
+    "width": 76,
+    "height": 51,
+    "text": "Next",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [255,255,255,1],
+    "primaryColor": [58,142,168,1],
+    "boxOutlineColor": [0,128,128,0],
+    "rounded":true,
+    "textCentered":true
+
+  }
+]

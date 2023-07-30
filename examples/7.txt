@@ -1,0 +1,31 @@
+Create a layout that has three texts. The first one just says "Welcome!". The second one says "We look forward to your thoughts and opinions." The third one says "Today's survey should take you about 10-15 minutes to complete."
+
+[
+  {
+    "id": "welcomeText",
+    "type": "Text",
+    "text": "Welcome!",
+    "drawX": 392,
+    "drawY": 222,
+    "textSize": 26,
+    "textColor": [44, 62, 80, 1]
+  },
+  {
+    "id": "welcomeText",
+    "type": "Text",
+    "text": "We look forward to your thoughts and opinions.",
+    "drawX": 392,
+    "drawY": 294,
+    "textSize": 26,
+    "textColor": [44, 62, 80, 1]
+  },
+  {
+    "id": "welcomeText",
+    "type": "Text",
+    "text": "Today's survey should take you about 10-15 minutes to complete.",
+    "drawX": 392,
+    "drawY": 367,
+    "textSize": 26,
+    "textColor": [44, 62, 80, 1]
+  }
+]

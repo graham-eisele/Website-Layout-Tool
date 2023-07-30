@@ -1,4 +1,5 @@
 #include "../headers/RadioOption.h"
+#include "../headers/utils.h"
 #include <iostream>
 
 RadioOption::RadioOption(std::string id, int w, int h, std::string text, int textFontSize, Color textColor, Color boxFillColor, Color circleFillColor, Color circleOutlineColor, int borderThickness, Color boxOutlineColor, bool buttonRounded, bool buttonTextCentered)
@@ -105,4 +106,27 @@ void RadioOption::setIndex(int index)
 int RadioOption::getIndex()
 {
     return index;
+}
+
+void RadioOption::mutate()
+{
+
+    bool radioOptionRounded;
+    bool textCentered;
+
+    this->width = utils::mutateInt(width, 1920);
+    this->height = utils::mutateInt(height, 1080);
+    this->borderThickness = utils::mutateInt(borderThickness, 40);
+    this->textFontSize = utils::mutateInt(textFontSize, 100);
+
+    this->primaryBoxColor = utils::mutateColor(primaryBoxColor);
+    this->boxOutlineColor = utils::mutateColor(boxOutlineColor);
+    this->circleFillColor = utils::mutateColor(circleFillColor);
+    this->circleOutlineColor = utils::mutateColor(circleOutlineColor);
+    this->textColor = utils::mutateColor(textColor);
+
+    this->text = utils::mutateString(this->text);
+
+    this->radioOptionRounded = utils::randomBool();
+    this->textCentered = utils::randomBool();
 }

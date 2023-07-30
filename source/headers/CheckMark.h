@@ -34,6 +34,8 @@ public:
     void setIndex(int index);
     int getIndex();
 
+    void mutate();
+
 private:
     
     int width;

@@ -12,6 +12,8 @@
 #include "../rapidjson/document.h"
 #include "../rapidjson/filereadstream.h"
 
+#include "opencv2/opencv.hpp"
+
 class utils
 {
 public:
@@ -45,6 +47,9 @@ public:
      static bool randomBool();
 
      static int mutateInt(int original, int max);    
+     static Color mutateColor(Color originalColor);
+     static std::string mutateString(std::string originalString);
+     static char randomCharacter();
 
      static rapidjson::Document loadJson(std::string jsonPath);
 
@@ -58,9 +63,14 @@ public:
      static CheckMark parseCheckBox(rapidjson::Value& object, int index);
      static RadioOption parseRadioOption(rapidjson::Value& object, int index);
      static ImagePlaceholder parseImagePlaceholder(rapidjson::Value& object, int index);
-     static Captcha parseCaptcha(rapidjson::Value& object, int index);  
+     static Captcha parseCaptcha(rapidjson::Value& object, int index);
 
      static Color parseColor(rapidjson::Value& colorArray);
+
+     static int getPixelDiff(std::string imageOne, std::string imageTwo);
+     static int count_diff_pixels(cv::Mat in1, cv::Mat in2);
+
+     static Layout mutateLayout(Layout layout);
      
 private:
    

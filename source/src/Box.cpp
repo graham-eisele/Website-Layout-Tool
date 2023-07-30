@@ -1,7 +1,8 @@
 #include "../headers/Box.h"
+#include "../headers/utils.h"
 #include <iostream>
 
-Box::Box(std::string id, int w, int h, Color primaryColor, int borderThickness, Color boxOutlineColor)
+Box::Box(std::string id, int w, int h, Color primaryColor, int borderThickness, Color boxOutlineColor, bool isRounded)
 {   
     this->id = id;
     
@@ -19,6 +20,8 @@ Box::Box(std::string id, int w, int h, Color primaryColor, int borderThickness, 
     
     this->primaryColor = primaryColor;
     this->boxOutlineColor = boxOutlineColor;
+
+    this->isRounded = isRounded;
 }
 
 const int Box::getWidth()
@@ -46,7 +49,7 @@ Color Box::getBoxOutlineColor()
     return boxOutlineColor;
 }
 
-std::string Box::getId()
+const std::string Box::getId()
 {
     return id;
 }
@@ -58,4 +61,23 @@ void Box::setIndex(int index)
 int Box::getIndex()
 {
     return index;
+}
+
+const bool Box::rounded()
+{
+    return isRounded;
+}
+
+void Box::mutate()
+{
+    width = utils::mutateInt(width, 1920);
+    height = utils::mutateInt(height, 1080);
+
+    borderThickness = utils::mutateInt(borderThickness, 20);
+
+    primaryColor = utils::mutateColor(primaryColor);
+    boxOutlineColor = utils::mutateColor(boxOutlineColor);
+
+    isRounded = utils::randomBool();
+
 }

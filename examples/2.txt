@@ -1,0 +1,672 @@
+Here is example json code for a layout for a webpage that asks a user to rank in alphabetical order the names of fruits. The names of the fruits are: Strawberry, Grapefruit, Lemon, Watermelon, and Orange. They are in that order as well from top to bottom as row labels for a 5 x 5 grid of radio option circles. The column labels are First, Second, Third, Fourth, and Fith in that order from left to right. Each row can have one option selected. Underneath is a button with a text label saying "Next". 
+[
+  {
+  "id": "header1",
+  "type": "Box",
+  "drawX": 0,
+  "drawY": 137,
+  "width": 1920,
+  "height": 880,
+  "primaryColor": [239, 239, 239, 1],
+  "borderThickness": 0,
+  "boxOutlineColor": [0, 0, 0, 0]
+  },
+  {
+  "id": "header2",
+  "type": "Box",
+  "drawX": 192,
+  "drawY": 137,
+  "width": 1536,
+  "height": 679,
+  "primaryColor": [255, 255, 255, 1],
+  "borderThickness": 0,
+  "boxOutlineColor": [0, 0, 0, 0]
+  },
+  {
+  "id": "divider1",
+  "type": "Box",
+  "drawX": 260,
+  "drawY": 380,
+  "width": 1411,
+  "height": 50,
+  "primaryColor": [247, 247, 247, 1],
+  "borderThickness": 0,
+  "boxOutlineColor": [0, 0, 0, 0]
+  },
+  {
+  "id": "divider2",
+  "type": "Box",
+  "drawX": 260,
+  "drawY": 480,
+  "width": 1411,
+  "height": 50,
+  "primaryColor": [247, 247, 247, 1],
+  "borderThickness": 0,
+  "boxOutlineColor": [0, 0, 0, 0]
+  },
+  {
+  
+  "id": "question1",
+  "type": "Text",
+  "text": "For each of the fruits listed below, please rank in alphabetical order by selecting first, second, third, etc.  to indicate the order they should be listed if sorted \nalphabetically.    ",
+  "drawX": 230,
+  "drawY": 195,
+  "textSize": 20,
+  "textColor": [44,62,80,1]
+  
+  },
+  {
+  
+  "id": "question2",
+  "type": "Text",
+  "text": "Please select one answer in each column.",
+  "drawX": 230,
+  "drawY": 250,
+  "textSize": 20,
+  "textColor": [44,62,80,1]
+  
+  },
+  {
+  
+  "id": "rowLabelStrawberry",
+  "type": "Text",
+  "text": "Strawberry",
+  "drawX": 270,
+  "drawY": 350,
+  "textSize": 20,
+  "textColor": [44,62,80,1]
+  
+  },
+  {
+  
+  "id": "rowLabelGrapefruit",
+  "type": "Text",
+  "text": "Grapefruit",
+  "drawX": 270,
+  "drawY": 400,
+  "textSize": 20,
+  "textColor": [44,62,80,1]
+  
+  },
+  {
+  
+  "id": "rowLabelLemon",
+  "type": "Text",
+  "text": "Lemon",
+  "drawX": 270,
+  "drawY": 450,
+  "textSize": 20,
+  "textColor": [44,62,80,1]
+  
+  },
+  {
+  
+  "id": "rowLabelWatermelon",
+  "type": "Text",
+  "text": "Watermelon",
+  "drawX": 270,
+  "drawY": 500,
+  "textSize": 20,
+  "textColor": [44,62,80,1]
+  
+  },
+  {
+  
+  "id": "rowLabelOrange",
+  "type": "Text",
+  "text": "Orange",
+  "drawX": 270,
+  "drawY": 545,
+  "textSize": 20,
+  "textColor": [44,62,80,1]
+  
+  },
+  {
+  
+  "id": "columnLabelFirst",
+  "type": "Text",
+  "text": "First",
+  "drawX": 880,
+  "drawY": 300,
+  "textSize": 20,
+  "textColor": [44,62,80,1]
+  
+  },
+  {
+  
+  "id": "columnLabelSecond",
+  "type": "Text",
+  "text": "Second",
+  "drawX": 1040,
+  "drawY": 300,
+  "textSize": 20,
+  "textColor": [44,62,80,1]
+  
+  },
+  {
+  
+  "id": "columnLabelThird",
+  "type": "Text",
+  "text": "Third",
+  "drawX": 1240,
+  "drawY": 300,
+  "textSize": 20,
+  "textColor": [44,62,80,1]
+  
+  },
+  {
+  
+  "id": "columnLabelFourth",
+  "type": "Text",
+  "text": "Fourth",
+  "drawX": 1400,
+  "drawY": 300,
+  "textSize": 20,
+  "textColor": [44,62,80,1]
+  
+  },
+  {
+  
+  "id": "columnLabelFifth",
+  "type": "Text",
+  "text": "Fifth",
+  "drawX": 1580,
+  "drawY": 300,
+  "textSize": 20,
+  "textColor": [44,62,80,1]
+  
+  },
+  {
+  
+  "id": "option_strawberry_first",
+  "type": "RadioOption",
+  "drawX": 887,
+  "drawY": 350,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_strawberry_second",
+  "type": "RadioOption",
+  "drawX": 1060,
+  "drawY": 350,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_strawberry_third",
+  "type": "RadioOption",
+  "drawX": 1250,
+  "drawY": 350,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_strawberry_fourth",
+  "type": "RadioOption",
+  "drawX": 1415,
+  "drawY": 350,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_strawberry_fifth",
+  "type": "RadioOption",
+  "drawX": 1590,
+  "drawY": 350,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_grapefruit_first",
+  "type": "RadioOption",
+  "drawX": 887,
+  "drawY": 400,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_grapefruit_second",
+  "type": "RadioOption",
+  "drawX": 1060,
+  "drawY": 400,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_grapefruit_third",
+  "type": "RadioOption",
+  "drawX": 1250,
+  "drawY": 400,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_grapefruit_fourth",
+  "type": "RadioOption",
+  "drawX": 1415,
+  "drawY": 400,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_grapefruit_fifth",
+  "type": "RadioOption",
+  "drawX": 1590,
+  "drawY": 400,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_lemon_first",
+  "type": "RadioOption",
+  "drawX": 887,
+  "drawY": 450,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_lemon_second",
+  "type": "RadioOption",
+  "drawX": 1060,
+  "drawY": 450,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_lemon_third",
+  "type": "RadioOption",
+  "drawX": 1250,
+  "drawY": 450,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_lemon_fourth",
+  "type": "RadioOption",
+  "drawX": 1415,
+  "drawY": 450,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_lemon_fifth",
+  "type": "RadioOption",
+  "drawX": 1590,
+  "drawY": 450,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_watermelon_first",
+  "type": "RadioOption",
+  "drawX": 887,
+  "drawY": 500,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_watermelon_second",
+  "type": "RadioOption",
+  "drawX": 1060,
+  "drawY": 500,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_watermelon_third",
+  "type": "RadioOption",
+  "drawX": 1250,
+  "drawY": 500,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_watermelon_fourth",
+  "type": "RadioOption",
+  "drawX": 1415,
+  "drawY": 500,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_watermelon_fifth",
+  "type": "RadioOption",
+  "drawX": 1590,
+  "drawY": 500,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_orange_first",
+  "type": "RadioOption",
+  "drawX": 887,
+  "drawY": 550,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_orange_second",
+  "type": "RadioOption",
+  "drawX": 1060,
+  "drawY": 550,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_orange_third",
+  "type": "RadioOption",
+  "drawX": 1250,
+  "drawY": 550,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_orange_fourth",
+  "type": "RadioOption",
+  "drawX": 1415,
+  "drawY": 550,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "option_orange_fifth",
+  "type": "RadioOption",
+  "drawX": 1590,
+  "drawY": 550,
+  "width": 22,
+  "height": 22,
+  "text": "",
+  "textSize": 0,
+  "borderThickness": 0,
+  "textColor": [100,0,100,0],
+  "primaryColor": [100,0,100,0],
+  "boxOutlineColor":[100,0,100,0],
+  "circleFillColor": [255,255,255,0],
+  "circleOutlineColor": [44,62,80,1],
+  "containerRounded":false,
+  "containerTextCentered":true	
+  },
+  {
+  
+  "id": "nextButton",
+  "type": "Button",
+  "drawX": 928,
+  "drawY": 620,
+  "width": 76,
+  "height": 52,
+  "text": "Next",
+  "textSize": 20,
+  "borderThickness": 0,
+  "textColor": [255,255,255,1],
+  "primaryColor": [58,142,168,1],
+  "boxOutlineColor": [0,0,0,0],
+  "rounded":true,
+  "textCentered":true
+  
+  } 
+  ]

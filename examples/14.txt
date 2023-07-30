@@ -1,0 +1,95 @@
+Create a layout with a text element that says: "In addition to regular surveys, would you be willing to participate in In-Person Interviews/In--Person Group Discussions?  For this type of study you will usually be asked to go to a specific place (short driving distance from where you live) and participate in an in-person interview or in-person group discussion.  You will be told about the subject, where you'll need to go, the length of the interview, and the incentive before you agree to participate. If your schedule allowed, would you be willing to participate?"
+
+Below that text element are two radio options. One says "Yes, I would be willing" and the other says "No, I would not be willing to participate".Then, on the bottom right there is a button that has the text "Continue".
+
+[
+  {
+
+    "id": "background1",
+    "type": "Box",
+    "drawX": 0,
+    "drawY": 0,
+    "width": 1920,
+    "height": 1080,
+    "primaryColor": [241,241,241,1],
+    "borderThickness": 0,
+    "boxOutlineColor": [0,0,0,0]
+  
+  },
+  {
+
+    "id": "foreground1",
+    "type": "Box",
+    "drawX": 215,
+    "drawY": 196,
+    "width": 1498,
+    "height": 676,
+    "primaryColor": [255,255,255,1],
+    "borderThickness": 0,
+    "boxOutlineColor": [0,0,0,0]
+  
+  },
+  {
+    "type": "Text",
+    "id": "mainText",
+    "text": "In addition to regular surveys, would you be willing to participate in In-\nPerson Interviews/In--Person Group Discussions? For this type of study you will usually be asked to go to a specific \nplace (short driving distance from where you live) and participate in an \nin-person interview or in-person group discussion. You will be told about the subject, where you'll need to go, the \nlength of the interview, and the incentive before you agree to participate. If your schedule \nallowed, would you be willing to participate?",
+    "drawX": 273,
+    "drawY": 343,
+    "textSize": 30,
+    "textColor": [44, 62, 80, 1]
+  },
+
+  {
+    "type": "RadioOption",
+    "id": "yesOption",
+    "type": "RadioOption",
+    "drawX": 270,
+    "drawY": 660,
+    "width": 482,
+    "height": 44,
+    "text": "Yes, I would be willing",
+    "textSize": 25,
+    "borderThickness": 2,
+    "textColor": [51,51,51,1],
+    "primaryColor": [243,243,243,1],
+    "boxOutlineColor":[204,204,204,1],
+    "circleFillColor": [255,255,255,1],
+    "circleOutlineColor": [155, 155, 155, 1],
+    "containerRounded":true,
+    "containerTextCentered":false	
+  },
+
+  {
+    "type": "RadioOption",
+    "id": "noOption",
+    "drawX": 777,
+    "drawY": 660,
+    "width": 482,
+    "height": 60,
+    "text": "No, I would not be willing to \nparticipate",
+    "textSize": 25,
+    "borderThickness": 2,
+    "textColor": [51,51,51,1],
+    "primaryColor": [243,243,243,1],
+    "boxOutlineColor":[204,204,204,1],
+    "circleFillColor": [255,255,255,1],
+    "circleOutlineColor": [155, 155, 155, 1],
+    "containerRounded":true,
+    "containerTextCentered":false	
+  },
+
+  {
+    "type": "Button",
+    "id": "continueButton",
+    "text": "Continue",
+    "drawX": 1460,
+    "drawY": 775,
+    "width": 192,
+    "height": 63,
+    "textSize": 22,
+    "textColor": [255, 255, 255, 1],
+    "primaryColor": [0, 128, 128, 1],
+    "rounded": true,
+    "textCentered": true
+  }
+]

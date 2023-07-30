@@ -35,3 +35,23 @@ int Color::getA()
 {
     return a;
 }
+
+void Color::setR(int r)
+{
+    this->r = r;
+}
+
+void Color::setG(int g)
+{
+    this->g = g;
+}
+
+void Color::setB(int b)
+{
+    this->b = b;
+}
+
+void Color::setA(int a)
+{  
+    this->a = a;
+}

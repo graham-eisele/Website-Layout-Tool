@@ -1,0 +1,113 @@
+Create a layout that asks the user "How many children under 16 years old live in your household?".
+The users's options are the following: None,1,2,3, or 4 or more.
+
+[
+  {
+    "id": "instructionText",
+    "type": "Text",
+    "text": "How many children under 16 years old live in your household?",
+    "drawX": 392,
+    "drawY": 222,
+    "textSize": 26,
+    "textColor": [44, 62, 80, 1]
+  },
+  {
+    "id": "selectOneText",
+    "type": "Text",
+    "text": "Select one.",
+    "drawX": 392,
+    "drawY": 290,
+    "textSize": 22,
+    "textColor": [44, 62, 80, 1]
+  },
+  {
+	
+    "id": "noneButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 326,
+    "width": 1113,
+    "height": 60,
+    "text": "None",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  },
+  {
+	
+    "id": "oneButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 398,
+    "width": 1113,
+    "height": 60,
+    "text": "1",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  },
+  {
+	
+    "id": "twoButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 470,
+    "width": 1113,
+    "height": 60,
+    "text": "2",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  },
+  {
+	
+    "id": "threeButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 542,
+    "width": 1113,
+    "height": 60,
+    "text": "3",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  },
+  {
+	
+    "id": "fourOrMoreButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 617,
+    "width": 1113,
+    "height": 60,
+    "text": "4 or more",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  }
+]

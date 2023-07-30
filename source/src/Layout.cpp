@@ -41,10 +41,20 @@ void Layout::addImagePlaceHolderElement(ImagePlaceholder imagePlaceholder)
 {
     imagePlaceholderElements.push_back(imagePlaceholder);
 }
-    
+
+void Layout::setCanvasWidth(int width)
+{
+    this->canvasWidth = width;
+}
+
+void Layout::setCanvasHeight(int height)
+{
+    this->canvasHeight = height;
+}
+
 Box Layout::popBox()
 {
-    Box outputBox("null", 0, 0, Color(0, 0, 0, 0), 0, Color(0, 0, 0, 0));
+    Box outputBox("null", 0, 0, Color(0, 0, 0, 0), 0, Color(0, 0, 0, 0), false);
 
     if(numBoxElements() > 0)
     {
@@ -241,4 +251,47 @@ int Layout::popYCoordinate()
     int frontYCoordinate = coordinatesY[0];
     coordinatesY.pop_front();
     return frontYCoordinate;
+}
+
+void Layout::mutate()
+{
+    for(Box &box: boxElements)
+    {
+        box.mutate();
+    }
+
+    for(Text &text: textElements)
+    {
+        text.mutate();
+    }
+
+    for(TextBox &textBox: textboxElements)
+    {
+        textBox.mutate();
+    }
+
+    for(Button &button: buttonElements)
+    {
+        button.mutate();
+    }
+
+    for(CheckMark &checkMark: checkmarkElements)
+    {
+        checkMark.mutate();
+    }
+
+    for(RadioOption &radioOption: radioOptionElements)
+    {
+        radioOption.mutate();
+    }
+
+    for(Captcha &captcha: captchaElements)
+    {
+        captcha.mutate();
+    }
+
+    for(ImagePlaceholder &imagePlaceHolder: imagePlaceholderElements)
+    {
+        imagePlaceHolder.mutate();
+    }
 }

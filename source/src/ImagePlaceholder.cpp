@@ -1,4 +1,5 @@
 #include "../headers/ImagePlaceholder.h"
+#include "../headers/utils.h"
 #include <iostream>
 
 ImagePlaceholder::ImagePlaceholder(std::string id, int w, int h)
@@ -32,4 +33,10 @@ void ImagePlaceholder::setIndex(int index)
 int ImagePlaceholder::getIndex()
 {
     return index;
+}
+
+void ImagePlaceholder::mutate()
+{
+    this->width = utils::mutateInt(width, 1920);
+    this->height = utils::mutateInt(height, 1080);
 }

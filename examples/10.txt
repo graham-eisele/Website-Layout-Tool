@@ -1,0 +1,147 @@
+Create a layout that asks the user identify their sexual orientation:
+[
+  {
+    "id": "instructionText",
+    "type": "Text",
+    "text": "Do you think of yourself as:",
+    "drawX": 392,
+    "drawY": 222,
+    "textSize": 26,
+    "textColor": [44, 62, 80, 1]
+  },
+  {
+    "id": "selectText",
+    "type": "Text",
+    "text": "Select all that apply.",
+    "drawX": 392,
+    "drawY": 290,
+    "textSize": 22,
+    "textColor": [44, 62, 80, 1]
+  },
+  {
+	
+    "id": "heteroSexualButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 326,
+    "width": 1113,
+    "height": 60,
+    "text": "Heterosexual or straight",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  },
+  {
+	
+    "id": "gayButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 398,
+    "width": 1113,
+    "height": 60,
+    "text": "Gay or lesbian",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  },
+  {
+	
+    "id": "bisexualButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 470,
+    "width": 1113,
+    "height": 60,
+    "text": "Bisexual",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  },
+  {
+	
+    "id": "transButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 542,
+    "width": 1113,
+    "height": 60,
+    "text": "Trans/Transgender",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  },
+  {
+	
+    "id": "noneBinaryButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 617,
+    "width": 1113,
+    "height": 60,
+    "text": "Non-binary",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  },
+  {
+	
+    "id": "otherButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 692,
+    "width": 1113,
+    "height": 60,
+    "text": "Other",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  },
+  {
+	
+    "id": "preferButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 767,
+    "width": 1113,
+    "height": 60,
+    "text": "Prefer not to answer",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  }
+]

@@ -16,11 +16,30 @@
 #include "../headers/CImg.h"
 #include "opencv2/opencv.hpp"
 
-int main(int argc, const char** argv)
+int main(int argc, const char* argv[])
 {
     
-    Layout test = utils::getLayout("example.json");
-    utils::drawLayout(test, "test");
+    Layout layout;
+
+    std::string first_comandline_argument = argv[1];
+    std::string second_comandline_argument = argv[1];
+    
+    std::string first_command = first_comandline_argument.substr(0, 13);
+    std::string second_command = first_comandline_argument.substr(0, 13);
+
+    if(first_command == "--input_file=")
+    {
+        std::string input_filename = first_comandline_argument.substr(13);
+
+        std::string output_filename = "output";
+
+        if(second_command == "--output_file=")
+        {
+            output_filename = second_comandline_argument.substr(13);
+        }
+        
+         utils::drawLayout( utils::getLayout(input_filename), output_filename);
+    }
 
     return 0;
 }

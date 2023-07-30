@@ -1,4 +1,5 @@
 #include "../headers/CheckMark.h"
+#include "../headers/utils.h"
 #include <iostream>
 
 CheckMark::CheckMark(std::string id, int w, int h, std::string text, int textFontSize, Color textColor, Color checkmarkBoxFillColor, Color checkmarkBoxOutlineColor, Color containerFillColor, Color containerOutlineColor, int borderThickness, bool containerRounded, bool buttonTextCentered, bool checkMarkBoxRounded)
@@ -111,4 +112,28 @@ void CheckMark::setIndex(int index)
 int CheckMark::getIndex()
 {
     return index;
+}
+
+void CheckMark::mutate()
+{
+
+    width = utils::mutateInt(width, 1920);
+    height = utils::mutateInt(height, 1080);
+
+    borderThickness = utils::mutateInt(borderThickness, 20);
+    textFontSize = utils::mutateInt(borderThickness, 100);
+
+    containerFillColor = utils::mutateColor(containerFillColor);
+    containerOutlineColor = utils::mutateColor(containerOutlineColor);
+
+    checkmarkBoxFillColor = utils::mutateColor(checkmarkBoxFillColor);
+    checkmarkBoxOutlineColor = utils::mutateColor(checkmarkBoxOutlineColor);
+
+    textColor = utils::mutateColor(textColor);
+
+    text = utils::mutateString(text);
+
+    checkmarkContainerRounded = utils::randomBool(); 
+    textCentered = utils::randomBool();
+    checkmarkBoxRounded = utils::randomBool();
 }

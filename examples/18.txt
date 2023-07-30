@@ -1,0 +1,115 @@
+Create a layout that has the following color as the background: rgb(35,31,32). In the middle there is a box that holds different elements that are content. The color of this box is: rgb(240,240,240). In this box there is a text element with the text: "Which of the following best describes the types of PC games you play the most?" and below there is another text element that says "Think about the game or games you play the most on your PC, and select the option that best fits. If you play both types of games, please use your best judgment." Below there are three radio options with the following text labels: "Browser-Based Games - games that you can play directly through your Internet browser. These include games like Facebook games, Flash games, Internet poker, etc. ", "Client-Based Games - games that require you to download something to play. These include traditional disc-based games, those purchased/downloaded from storefronts like Steam, Origin, Windows, etc., and most MMORPGs or MOBAs. ",and "Unsure".In the bottom right of the content box there is a green button with the text label: ">>":
+
+[
+  {
+    "id": "background",
+    "type": "Box",
+    "primaryColor": [35, 31, 32, 1],
+    "width": 1920, 
+    "height": 1080,
+    "drawX": 0,
+    "drawY": 0
+  },
+
+  {
+    "id": "contentBox", 
+    "type": "Box",
+    "primaryColor": [240, 240, 240, 1], 
+    "width": 800,
+    "height": 600,
+    "drawX": 560,
+    "drawY": 200
+  },
+
+  {
+    "id": "headerText",
+    "type": "Text",
+    "text": "Which of the following best describes the types of PC games you play the most?",
+    "drawX": 580,
+    "drawY": 220,
+    "textSize": 22,
+    "textColor": [44, 62, 80, 1]
+  },
+
+  {
+    "id": "instructionText",
+    "type": "Text", 
+    "text": "Think about the game or games you play the most on your PC, and select the option that best \nfits. If you play both types of games, please use your best judgment.",
+    "drawX": 580,
+    "drawY": 260,
+    "textSize": 18,
+    "textColor": [76, 79, 85, 1]
+  },
+  
+  {
+    "id": "browserOption",
+    "type": "RadioOption",
+    "text": "Browser-Based Games - games that you can play directly through your Internet browser. \nThese include games like Facebook games, Flash games, Internet poker, etc.",  
+    "drawX": 590,
+    "drawY": 320,
+    "width": 700,
+    "height": 80,
+    "textSize": 16,
+    "borderThickness": 0,
+    "textColor": [44, 62, 80, 1],
+    "primaryColor": [241, 241, 241, 1],
+    "boxOutlineColor": [0, 0, 0, 1],
+    "circleFillColor": [241, 241, 241, 0],
+    "circleOutlineColor": [44, 62, 80, 1],
+    "containerRounded": false,
+    "containerTextCentered": false
+  },
+
+  {
+    "id": "clientOption",
+    "type": "RadioOption", 
+    "text": "Client-Based Games - games that require you to download something to play. These include \ntraditional disc-based games, those purchased/downloaded from storefronts like Steam, \nOrigin, Windows, etc., and most MMORPGs or MOBAs.",
+    "drawX": 590, 
+    "drawY": 419,
+    "width": 700,
+    "height": 80,
+    "textSize": 16,
+    "borderThickness": 0,
+    "textColor": [44, 62, 80, 1],
+    "primaryColor": [241, 241, 241, 1],
+    "boxOutlineColor": [0, 0, 0, 1],
+    "circleFillColor": [241, 241, 241, 0],
+    "circleOutlineColor": [44, 62, 80, 1],
+    "containerRounded": false,
+    "containerTextCentered": false
+  },
+
+  {
+    "id": "unsureOption",
+    "type": "RadioOption",
+    "text": "Unsure",
+    "drawX": 590,
+    "drawY": 519,
+    "width": 100,
+    "height": 80,
+    "textSize": 16,
+    "borderThickness": 0,
+    "textColor": [44, 62, 80, 1],
+    "primaryColor": [241, 241, 241, 1],
+    "boxOutlineColor": [0, 0, 0, 1],
+    "circleFillColor": [241, 241, 241, 0],
+    "circleOutlineColor": [44, 62, 80, 1],
+    "containerRounded": false,
+    "containerTextCentered": false
+  },
+
+  {
+    "id": "continueButton",
+    "type": "Button",  
+    "text": ">>",
+    "drawX": 1250,
+    "drawY": 700,
+    "width": 60,
+    "height": 40,
+    "textSize": 20,
+    "textColor": [255, 255, 255, 1],
+    "primaryColor": [140, 197, 64, 1],
+    "rounded": true,
+    "textCentered": true 
+  }
+]

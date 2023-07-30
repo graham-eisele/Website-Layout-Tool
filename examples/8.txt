@@ -1,0 +1,75 @@
+Create a layout that instructs the user to describe their living environment. They can select one option. The user's options are rural,urban/city,and suburban.
+[
+  {
+    "id": "instructionText",
+    "type": "Text",
+    "text": "Which best describes your living environment?",
+    "drawX": 392,
+    "drawY": 222,
+    "textSize": 26,
+    "textColor": [44, 62, 80, 1]
+  },
+  {
+    "id": "selectOneText",
+    "type": "Text",
+    "text": "Select one.",
+    "drawX": 392,
+    "drawY": 270,
+    "textSize": 22,
+    "textColor": [44, 62, 80, 1]
+  },
+  {
+	
+    "id": "ruralButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 326,
+    "width": 1113,
+    "height": 60,
+    "text": "Rural",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  },
+  {
+	
+    "id": "ruralButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 398,
+    "width": 1113,
+    "height": 60,
+    "text": "Urban/city.",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  },
+  {
+	
+    "id": "ruralButton",
+    "type": "Button",
+    "drawX": 402,
+    "drawY": 470,
+    "width": 1113,
+    "height": 60,
+    "text": "Suburban",
+    "textSize": 20,
+    "borderThickness": 0,
+    "textColor": [87,80,73,1],
+    "primaryColor": [242,242,242,1],
+    "boxOutlineColor": [0,128,128,1],
+    "rounded":true,
+    "textCentered":true
+
+  }
+]
